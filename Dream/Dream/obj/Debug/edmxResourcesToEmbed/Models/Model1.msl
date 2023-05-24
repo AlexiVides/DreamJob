@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BdDreamJobModelStoreContainer" CdmEntityContainer="BdDreamJobEntities">
+    <EntitySetMapping Name="Aplicacion">
+      <EntityTypeMapping TypeName="BdDreamJobModel.Aplicacion">
+        <MappingFragment StoreEntitySet="Aplicacion">
+          <ScalarProperty Name="idAplicacion" ColumnName="idAplicacion" />
+          <ScalarProperty Name="idCurriculum" ColumnName="idCurriculum" />
+          <ScalarProperty Name="idOfertaEmpleo" ColumnName="idOfertaEmpleo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cargo">
+      <EntityTypeMapping TypeName="BdDreamJobModel.Cargo">
+        <MappingFragment StoreEntitySet="Cargo">
+          <ScalarProperty Name="idCargo" ColumnName="idCargo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Curriculum">
+      <EntityTypeMapping TypeName="BdDreamJobModel.Curriculum">
+        <MappingFragment StoreEntitySet="Curriculum">
+          <ScalarProperty Name="idCurriculum" ColumnName="idCurriculum" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="genero" ColumnName="genero" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="dui" ColumnName="dui" />
+          <ScalarProperty Name="licencia" ColumnName="licencia" />
+          <ScalarProperty Name="nivelAcademico" ColumnName="nivelAcademico" />
+          <ScalarProperty Name="historialAcademico" ColumnName="historialAcademico" />
+          <ScalarProperty Name="referenciaPers" ColumnName="referenciaPers" />
+          <ScalarProperty Name="experienciaLab" ColumnName="experienciaLab" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="correoOpc" ColumnName="correoOpc" />
+          <ScalarProperty Name="segundoIdioma" ColumnName="segundoIdioma" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DatosEmpresa">
+      <EntityTypeMapping TypeName="BdDreamJobModel.DatosEmpresa">
+        <MappingFragment StoreEntitySet="DatosEmpresa">
+          <ScalarProperty Name="idDatosEmpresa" ColumnName="idDatosEmpresa" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="licencia" ColumnName="licencia" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfertaEmpleo">
+      <EntityTypeMapping TypeName="BdDreamJobModel.OfertaEmpleo">
+        <MappingFragment StoreEntitySet="OfertaEmpleo">
+          <ScalarProperty Name="idOfertaEmpleo" ColumnName="idOfertaEmpleo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="nVacantes" ColumnName="nVacantes" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="requerimientos" ColumnName="requerimientos" />
+          <ScalarProperty Name="funciones" ColumnName="funciones" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="Salario" ColumnName="Salario" />
+          <ScalarProperty Name="prestaciones" ColumnName="prestaciones" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="idCargo" ColumnName="idCargo" />
+          <ScalarProperty Name="idDatosEmpresa" ColumnName="idDatosEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="BdDreamJobModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="rol1" ColumnName="rol" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BdDreamJobModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="BdDreamJobModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="contra" ColumnName="contra" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

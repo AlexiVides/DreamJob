@@ -1,0 +1,129 @@
+﻿@model IEnumerable<Dream.Models.Curriculum>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.genero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dui)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.licencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nivelAcademico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.historialAcademico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.referenciaPers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.experienciaLab)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correoOpc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.segundoIdioma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.correo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.genero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dui)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.licencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nivelAcademico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.historialAcademico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.referenciaPers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.experienciaLab)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.correoOpc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.segundoIdioma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario.correo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idCurriculum }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idCurriculum }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idCurriculum })
+        </td>
+    </tr>
+}
+
+</table>
