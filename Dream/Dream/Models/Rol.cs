@@ -21,7 +21,7 @@ namespace Dream.Models
         }
     
         public int idRol { get; set; }
-        public string rol1 { get; set; }
+        public int rol1 { get; set; }
         public string estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

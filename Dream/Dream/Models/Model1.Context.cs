@@ -13,10 +13,10 @@ namespace Dream.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BdDreamJobEntities : DbContext
+    public partial class BdDreamJobEntities1 : DbContext
     {
-        public BdDreamJobEntities()
-            : base("name=BdDreamJobEntities")
+        public BdDreamJobEntities1()
+            : base("name=BdDreamJobEntities1")
         {
         }
     
@@ -31,7 +31,6 @@ namespace Dream.Models
         public virtual DbSet<DatosEmpresa> DatosEmpresa { get; set; }
         public virtual DbSet<OfertaEmpleo> OfertaEmpleo { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
     }
 }
