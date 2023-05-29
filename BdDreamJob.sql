@@ -4,13 +4,23 @@ use BdDreamJob
 create table Rol
 (
 idRol int primary key identity(1,1) not null,
-rol nvarchar(50) not null,
+rol int not null,
 estado nvarchar(50) not null
 );
+
+insert into Rol values(1,'Activo');
+insert into Rol values(2,'Activo');
 
 create table Cargo
 (
 idCargo int primary key identity(1,1) not null,
+nombre nvarchar(50) not null,
+estado nvarchar(50) not null
+);
+
+create table Categoria
+(
+idCategoria int primary key identity(1,1) not null,
 nombre nvarchar(50) not null,
 estado nvarchar(50) not null
 );
@@ -23,6 +33,9 @@ contra nvarchar(50) not null,
 estado nvarchar(50) not null,
 idRol int foreign key references Rol(idRol)
 );
+
+insert into Usuario (correo,contra,estado,idRol) 
+values('alexi@gmail.com','1','Activo',1);
 
 create table DatosEmpresa
 (
@@ -54,6 +67,7 @@ experienciaLab nvarchar(1000) not null,
 descripcion nvarchar(1000) not null,
 correoOpc nvarchar(100) not null,
 segundoIdioma nvarchar(100) not null,
+imagen image null,
 estado nvarchar(50) not null,
 idUsuario int foreign key references Usuario(idUsuario)
 );
@@ -66,10 +80,10 @@ nVacantes int not null,
 descripcion nvarchar(1000) not null,
 requerimientos nvarchar(1000) not null,
 funciones nvarchar(1000) not null,
-categoria nvarchar(100) not null,
 Salario float null,
 prestaciones varchar(100) null,
 estado nvarchar(50) not null,
+idCategoria int foreign key references Categoria(idCategoria),
 idCargo int foreign key references Cargo(idCargo),
 idDatosEmpresa int foreign key references DatosEmpresa(idDatosEmpresa)
 );

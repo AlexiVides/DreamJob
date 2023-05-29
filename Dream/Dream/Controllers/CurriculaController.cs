@@ -12,7 +12,7 @@ namespace Dream.Controllers
 {
     public class CurriculaController : Controller
     {
-        private BdDreamJobEntities1 db = new BdDreamJobEntities1();
+        private BdDreamJobEntities db = new BdDreamJobEntities();
 
         // GET: Curricula
         public ActionResult Index()

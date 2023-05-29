@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BdDreamJobModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Aplicacion">
+    <Key>
+      <PropertyRef Name="idAplicacion" />
+    </Key>
+    <Property Name="idAplicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCurriculum" Type="int" />
+    <Property Name="idOfertaEmpleo" Type="int" />
+  </EntityType>
+  <EntityType Name="Cargo">
+    <Key>
+      <PropertyRef Name="idCargo" />
+    </Key>
+    <Property Name="idCargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="estado" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="idCategoria" />
+    </Key>
+    <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="estado" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Curriculum">
+    <Key>
+      <PropertyRef Name="idCurriculum" />
+    </Key>
+    <Property Name="idCurriculum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="apellido" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="edad" Type="int" Nullable="false" />
+    <Property Name="genero" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="telefono" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="dui" Type="int" Nullable="false" />
+    <Property Name="licencia" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nivelAcademico" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="historialAcademico" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="referenciaPers" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="experienciaLab" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="correoOpc" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="segundoIdioma" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="imagen" Type="image" />
+    <Property Name="estado" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idUsuario" Type="int" />
+  </EntityType>
+  <EntityType Name="DatosEmpresa">
+    <Key>
+      <PropertyRef Name="idDatosEmpresa" />
+    </Key>
+    <Property Name="idDatosEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="telefono" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="licencia" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="estado" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idUsuario" Type="int" />
+  </EntityType>
+  <EntityType Name="OfertaEmpleo">
+    <Key>
+      <PropertyRef Name="idOfertaEmpleo" />
+    </Key>
+    <Property Name="idOfertaEmpleo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="nVacantes" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="requerimientos" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="funciones" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Salario" Type="float" />
+    <Property Name="prestaciones" Type="varchar" MaxLength="100" />
+    <Property Name="estado" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idCategoria" Type="int" />
+    <Property Name="idCargo" Type="int" />
+    <Property Name="idDatosEmpresa" Type="int" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="idRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rol" Type="int" Nullable="false" />
+    <Property Name="estado" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="correo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="contra" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="estado" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idRol" Type="int" />
+  </EntityType>
+  <Association Name="FK__Aplicacio__idCur__4AB81AF0">
+    <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="0..1" />
+    <End Role="Aplicacion" Type="Self.Aplicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curriculum">
+        <PropertyRef Name="idCurriculum" />
+      </Principal>
+      <Dependent Role="Aplicacion">
+        <PropertyRef Name="idCurriculum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Aplicacio__idOfe__4BAC3F29">
+    <End Role="OfertaEmpleo" Type="Self.OfertaEmpleo" Multiplicity="0..1" />
+    <End Role="Aplicacion" Type="Self.Aplicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfertaEmpleo">
+        <PropertyRef Name="idOfertaEmpleo" />
+      </Principal>
+      <Dependent Role="Aplicacion">
+        <PropertyRef Name="idOfertaEmpleo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Curriculu__idUsu__4316F928">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Curriculum">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DatosEmpr__idUsu__403A8C7D">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="DatosEmpresa" Type="Self.DatosEmpresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="DatosEmpresa">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OfertaEmp__idCar__46E78A0C">
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
+    <End Role="OfertaEmpleo" Type="Self.OfertaEmpleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="idCargo" />
+      </Principal>
+      <Dependent Role="OfertaEmpleo">
+        <PropertyRef Name="idCargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OfertaEmp__idCat__45F365D3">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="OfertaEmpleo" Type="Self.OfertaEmpleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="idCategoria" />
+      </Principal>
+      <Dependent Role="OfertaEmpleo">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OfertaEmp__idDat__47DBAE45">
+    <End Role="DatosEmpresa" Type="Self.DatosEmpresa" Multiplicity="0..1" />
+    <End Role="OfertaEmpleo" Type="Self.OfertaEmpleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DatosEmpresa">
+        <PropertyRef Name="idDatosEmpresa" />
+      </Principal>
+      <Dependent Role="OfertaEmpleo">
+        <PropertyRef Name="idDatosEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__idRol__3D5E1FD2">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BdDreamJobModelStoreContainer">
+    <EntitySet Name="Aplicacion" EntityType="Self.Aplicacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Curriculum" EntityType="Self.Curriculum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DatosEmpresa" EntityType="Self.DatosEmpresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfertaEmpleo" EntityType="Self.OfertaEmpleo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Aplicacio__idCur__4AB81AF0" Association="Self.FK__Aplicacio__idCur__4AB81AF0">
+      <End Role="Curriculum" EntitySet="Curriculum" />
+      <End Role="Aplicacion" EntitySet="Aplicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Aplicacio__idOfe__4BAC3F29" Association="Self.FK__Aplicacio__idOfe__4BAC3F29">
+      <End Role="OfertaEmpleo" EntitySet="OfertaEmpleo" />
+      <End Role="Aplicacion" EntitySet="Aplicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Curriculu__idUsu__4316F928" Association="Self.FK__Curriculu__idUsu__4316F928">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Curriculum" EntitySet="Curriculum" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DatosEmpr__idUsu__403A8C7D" Association="Self.FK__DatosEmpr__idUsu__403A8C7D">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="DatosEmpresa" EntitySet="DatosEmpresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OfertaEmp__idCar__46E78A0C" Association="Self.FK__OfertaEmp__idCar__46E78A0C">
+      <End Role="Cargo" EntitySet="Cargo" />
+      <End Role="OfertaEmpleo" EntitySet="OfertaEmpleo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OfertaEmp__idCat__45F365D3" Association="Self.FK__OfertaEmp__idCat__45F365D3">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="OfertaEmpleo" EntitySet="OfertaEmpleo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OfertaEmp__idDat__47DBAE45" Association="Self.FK__OfertaEmp__idDat__47DBAE45">
+      <End Role="DatosEmpresa" EntitySet="DatosEmpresa" />
+      <End Role="OfertaEmpleo" EntitySet="OfertaEmpleo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__idRol__3D5E1FD2" Association="Self.FK__Usuario__idRol__3D5E1FD2">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

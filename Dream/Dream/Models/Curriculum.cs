@@ -36,6 +36,7 @@ namespace Dream.Models
         public string descripcion { get; set; }
         public string correoOpc { get; set; }
         public string segundoIdioma { get; set; }
+        public byte[] imagen { get; set; }
         public string estado { get; set; }
         public Nullable<int> idUsuario { get; set; }
     

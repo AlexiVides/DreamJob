@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BdDreamJobModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aplicacion">
+    <Key>
+      <PropertyRef Name="idAplicacion" />
+    </Key>
+    <Property Name="idAplicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCurriculum" Type="Int32" />
+    <Property Name="idOfertaEmpleo" Type="Int32" />
+    <NavigationProperty Name="Curriculum" Relationship="Self.FK__Aplicacio__idCur__4AB81AF0" FromRole="Aplicacion" ToRole="Curriculum" />
+    <NavigationProperty Name="OfertaEmpleo" Relationship="Self.FK__Aplicacio__idOfe__4BAC3F29" FromRole="Aplicacion" ToRole="OfertaEmpleo" />
+  </EntityType>
+  <EntityType Name="Cargo">
+    <Key>
+      <PropertyRef Name="idCargo" />
+    </Key>
+    <Property Name="idCargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="OfertaEmpleo" Relationship="Self.FK__OfertaEmp__idCar__46E78A0C" FromRole="Cargo" ToRole="OfertaEmpleo" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="idCategoria" />
+    </Key>
+    <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="OfertaEmpleo" Relationship="Self.FK__OfertaEmp__idCat__45F365D3" FromRole="Categoria" ToRole="OfertaEmpleo" />
+  </EntityType>
+  <EntityType Name="Curriculum">
+    <Key>
+      <PropertyRef Name="idCurriculum" />
+    </Key>
+    <Property Name="idCurriculum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="edad" Type="Int32" Nullable="false" />
+    <Property Name="genero" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dui" Type="Int32" Nullable="false" />
+    <Property Name="licencia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nivelAcademico" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="historialAcademico" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="referenciaPers" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="experienciaLab" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="correoOpc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="segundoIdioma" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="idUsuario" Type="Int32" />
+    <NavigationProperty Name="Aplicacion" Relationship="Self.FK__Aplicacio__idCur__4AB81AF0" FromRole="Curriculum" ToRole="Aplicacion" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Curriculu__idUsu__4316F928" FromRole="Curriculum" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="DatosEmpresa">
+    <Key>
+      <PropertyRef Name="idDatosEmpresa" />
+    </Key>
+    <Property Name="idDatosEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="licencia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="idUsuario" Type="Int32" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__DatosEmpr__idUsu__403A8C7D" FromRole="DatosEmpresa" ToRole="Usuario" />
+    <NavigationProperty Name="OfertaEmpleo" Relationship="Self.FK__OfertaEmp__idDat__47DBAE45" FromRole="DatosEmpresa" ToRole="OfertaEmpleo" />
+  </EntityType>
+  <EntityType Name="OfertaEmpleo">
+    <Key>
+      <PropertyRef Name="idOfertaEmpleo" />
+    </Key>
+    <Property Name="idOfertaEmpleo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nVacantes" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="requerimientos" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="funciones" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Salario" Type="Double" />
+    <Property Name="prestaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="idCategoria" Type="Int32" />
+    <Property Name="idCargo" Type="Int32" />
+    <Property Name="idDatosEmpresa" Type="Int32" />
+    <NavigationProperty Name="Aplicacion" Relationship="Self.FK__Aplicacio__idOfe__4BAC3F29" FromRole="OfertaEmpleo" ToRole="Aplicacion" />
+    <NavigationProperty Name="Cargo" Relationship="Self.FK__OfertaEmp__idCar__46E78A0C" FromRole="OfertaEmpleo" ToRole="Cargo" />
+    <NavigationProperty Name="Categoria" Relationship="Self.FK__OfertaEmp__idCat__45F365D3" FromRole="OfertaEmpleo" ToRole="Categoria" />
+    <NavigationProperty Name="DatosEmpresa" Relationship="Self.FK__OfertaEmp__idDat__47DBAE45" FromRole="OfertaEmpleo" ToRole="DatosEmpresa" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="idRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rol1" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__idRol__3D5E1FD2" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="contra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="idRol" Type="Int32" />
+    <NavigationProperty Name="Curriculum" Relationship="Self.FK__Curriculu__idUsu__4316F928" FromRole="Usuario" ToRole="Curriculum" />
+    <NavigationProperty Name="DatosEmpresa" Relationship="Self.FK__DatosEmpr__idUsu__403A8C7D" FromRole="Usuario" ToRole="DatosEmpresa" />
+    <NavigationProperty Name="Rol" Relationship="Self.FK__Usuario__idRol__3D5E1FD2" FromRole="Usuario" ToRole="Rol" />
+  </EntityType>
+  <Association Name="FK__Aplicacio__idCur__4AB81AF0">
+    <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="0..1" />
+    <End Role="Aplicacion" Type="Self.Aplicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curriculum">
+        <PropertyRef Name="idCurriculum" />
+      </Principal>
+      <Dependent Role="Aplicacion">
+        <PropertyRef Name="idCurriculum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Aplicacio__idOfe__4BAC3F29">
+    <End Role="OfertaEmpleo" Type="Self.OfertaEmpleo" Multiplicity="0..1" />
+    <End Role="Aplicacion" Type="Self.Aplicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfertaEmpleo">
+        <PropertyRef Name="idOfertaEmpleo" />
+      </Principal>
+      <Dependent Role="Aplicacion">
+        <PropertyRef Name="idOfertaEmpleo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OfertaEmp__idCar__46E78A0C">
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
+    <End Role="OfertaEmpleo" Type="Self.OfertaEmpleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="idCargo" />
+      </Principal>
+      <Dependent Role="OfertaEmpleo">
+        <PropertyRef Name="idCargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OfertaEmp__idCat__45F365D3">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="OfertaEmpleo" Type="Self.OfertaEmpleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="idCategoria" />
+      </Principal>
+      <Dependent Role="OfertaEmpleo">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Curriculu__idUsu__4316F928">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Curriculum">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DatosEmpr__idUsu__403A8C7D">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="DatosEmpresa" Type="Self.DatosEmpresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="DatosEmpresa">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OfertaEmp__idDat__47DBAE45">
+    <End Role="DatosEmpresa" Type="Self.DatosEmpresa" Multiplicity="0..1" />
+    <End Role="OfertaEmpleo" Type="Self.OfertaEmpleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DatosEmpresa">
+        <PropertyRef Name="idDatosEmpresa" />
+      </Principal>
+      <Dependent Role="OfertaEmpleo">
+        <PropertyRef Name="idDatosEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__idRol__3D5E1FD2">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BdDreamJobEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Aplicacion" EntityType="Self.Aplicacion" />
+    <EntitySet Name="Cargo" EntityType="Self.Cargo" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+    <EntitySet Name="Curriculum" EntityType="Self.Curriculum" />
+    <EntitySet Name="DatosEmpresa" EntityType="Self.DatosEmpresa" />
+    <EntitySet Name="OfertaEmpleo" EntityType="Self.OfertaEmpleo" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK__Aplicacio__idCur__4AB81AF0" Association="Self.FK__Aplicacio__idCur__4AB81AF0">
+      <End Role="Curriculum" EntitySet="Curriculum" />
+      <End Role="Aplicacion" EntitySet="Aplicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Aplicacio__idOfe__4BAC3F29" Association="Self.FK__Aplicacio__idOfe__4BAC3F29">
+      <End Role="OfertaEmpleo" EntitySet="OfertaEmpleo" />
+      <End Role="Aplicacion" EntitySet="Aplicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OfertaEmp__idCar__46E78A0C" Association="Self.FK__OfertaEmp__idCar__46E78A0C">
+      <End Role="Cargo" EntitySet="Cargo" />
+      <End Role="OfertaEmpleo" EntitySet="OfertaEmpleo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OfertaEmp__idCat__45F365D3" Association="Self.FK__OfertaEmp__idCat__45F365D3">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="OfertaEmpleo" EntitySet="OfertaEmpleo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Curriculu__idUsu__4316F928" Association="Self.FK__Curriculu__idUsu__4316F928">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Curriculum" EntitySet="Curriculum" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DatosEmpr__idUsu__403A8C7D" Association="Self.FK__DatosEmpr__idUsu__403A8C7D">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="DatosEmpresa" EntitySet="DatosEmpresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OfertaEmp__idDat__47DBAE45" Association="Self.FK__OfertaEmp__idDat__47DBAE45">
+      <End Role="DatosEmpresa" EntitySet="DatosEmpresa" />
+      <End Role="OfertaEmpleo" EntitySet="OfertaEmpleo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__idRol__3D5E1FD2" Association="Self.FK__Usuario__idRol__3D5E1FD2">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

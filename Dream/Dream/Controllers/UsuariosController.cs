@@ -12,7 +12,7 @@ namespace Dream.Controllers
 {
     public class UsuariosController : Controller
     {
-        private BdDreamJobEntities1 db = new BdDreamJobEntities1();
+        private BdDreamJobEntities db = new BdDreamJobEntities();
 
         // GET: Usuarios
         public ActionResult Index()
