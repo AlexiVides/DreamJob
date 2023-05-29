@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Dream.Models.OfertaEmpleo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nVacantes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.requerimientos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.funciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prestaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cargo.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatosEmpresa.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nVacantes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.requerimientos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.funciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prestaciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cargo.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatosEmpresa.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idOfertaEmpleo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idOfertaEmpleo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idOfertaEmpleo })
+        </td>
+    </tr>
+}
+
+</table>

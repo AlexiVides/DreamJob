@@ -1,0 +1,112 @@
+﻿@model Dream.Models.OfertaEmpleo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OfertaEmpleo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nVacantes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nVacantes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.requerimientos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requerimientos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.funciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.funciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prestaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prestaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cargo.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cargo.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatosEmpresa.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatosEmpresa.nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

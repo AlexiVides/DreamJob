@@ -1,0 +1,132 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using Dream.Models;
+
+namespace Dream.Controllers
+{
+    public class DatosEmpresasController : Controller
+    {
+        private BdDreamJobEntities db = new BdDreamJobEntities();
+
+        // GET: DatosEmpresas
+        public ActionResult Index()
+        {
+            var datosEmpresa = db.DatosEmpresa.Include(d => d.Usuario);
+            return View(datosEmpresa.ToList());
+        }
+
+        // GET: DatosEmpresas/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            DatosEmpresa datosEmpresa = db.DatosEmpresa.Find(id);
+            if (datosEmpresa == null)
+            {
+                return HttpNotFound();
+            }
+            return View(datosEmpresa);
+        }
+
+        // GET: DatosEmpresas/Create
+        public ActionResult Create()
+        {
+            ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo");
+            return View();
+        }
+
+        // POST: DatosEmpresas/Create
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "idDatosEmpresa,nombre,direccion,telefono,licencia,descripcion,estado,idUsuario")] DatosEmpresa datosEmpresa)
+        {
+            if (ModelState.IsValid)
+            {
+                db.DatosEmpresa.Add(datosEmpresa);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo", datosEmpresa.idUsuario);
+            return View(datosEmpresa);
+        }
+
+        // GET: DatosEmpresas/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            DatosEmpresa datosEmpresa = db.DatosEmpresa.Find(id);
+            if (datosEmpresa == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo", datosEmpresa.idUsuario);
+            return View(datosEmpresa);
+        }
+
+        // POST: DatosEmpresas/Edit/5
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "idDatosEmpresa,nombre,direccion,telefono,licencia,descripcion,estado,idUsuario")] DatosEmpresa datosEmpresa)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(datosEmpresa).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo", datosEmpresa.idUsuario);
+            return View(datosEmpresa);
+        }
+
+        // GET: DatosEmpresas/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            DatosEmpresa datosEmpresa = db.DatosEmpresa.Find(id);
+            if (datosEmpresa == null)
+            {
+                return HttpNotFound();
+            }
+            return View(datosEmpresa);
+        }
+
+        // POST: DatosEmpresas/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            DatosEmpresa datosEmpresa = db.DatosEmpresa.Find(id);
+            db.DatosEmpresa.Remove(datosEmpresa);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}
