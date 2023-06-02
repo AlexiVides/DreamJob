@@ -1,4 +1,135 @@
 ﻿
+card-body {
+    margin-top: 10px !important;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: white;
+}
+
+.service-container {
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+    .service-container .icon {
+        margin-top: 5%;
+        font-size: 38px;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+
+    .service-container .number-icon .icon-2 {
+        height: 70px;
+        width: 70px;
+        line-height: 80px;
+        border-radius: 64% 36% 55% 45% / 76% 72% 28% 24% !important;
+        border-color: #f89d36 !important;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+
+        .service-container .number-icon .icon-2 i {
+            font-size: 30px;
+        }
+
+    .service-container .number-icon .number {
+        position: absolute;
+        top: 0;
+        right: 70px;
+        left: 0;
+        height: 35px;
+        width: 35px;
+        margin: 0 auto;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+
+        .service-container .number-icon .number span {
+            line-height: 30px;
+        }
+
+    .service-container .content .number {
+        font-size: 40px;
+        color: #dee2e6;
+    }
+
+    .service-container .content .title {
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+
+    .service-container.hover-bg {
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+
+        .service-container.hover-bg .smooth-icon {
+            position: absolute;
+            bottom: -40px;
+            right: -20px;
+            font-size: 60px;
+            color: #f8f9fa;
+            -webkit-transition: all 0.8s ease;
+            transition: all 0.8s ease;
+        }
+
+        .service-container.hover-bg:hover {
+            background-color: #f89d36;
+        }
+
+            .service-container.hover-bg:hover .content .title {
+                color: #ffffff !important;
+            }
+
+            .service-container.hover-bg:hover .content .serv-pera {
+                color: #fafafb !important;
+            }
+
+            .service-container.hover-bg:hover .smooth-icon {
+                font-size: 100px;
+                opacity: 0.2;
+                bottom: -20px;
+                right: 10px;
+            }
+
+    .service-container:hover {
+        background-color: #ffffff;
+        -webkit-box-shadow: 0 10px 25px rgba(47, 60, 78, 0.15) !important;
+        box-shadow: 0 10px 25px rgba(47, 60, 78, 0.15) !important;
+    }
+
+        .service-container:hover .icon {
+            color: #f89d36;
+            -webkit-animation: mover 1s infinite alternate;
+            animation: mover 1s infinite alternate;
+        }
+
+        .service-container:hover .number-icon .icon-2 {
+            background-color: #f89d36;
+            border-radius: 50% !important;
+        }
+
+            .service-container:hover .number-icon .icon-2 i {
+                color: #ffffff !important;
+            }
+
+        .service-container:hover .number-icon .number {
+            color: #ffffff;
+            background: #f89d36 !important;
+            border-color: #ffffff !important;
+        }
+
+        .service-container:hover .content .title {
+            color: #f89d36;
+        }
+
+    .service-container a:hover,
+    .service-container a .title:hover {
+        color: #f89d36 !important;
+    }
+
+/*
+//////////*/
 body {
     margin-top: 20px;
 }
@@ -9,7 +140,7 @@ body {
     padding: 35px 50px;
     border-radius: 20px;
     position: relative;
-    background-color:white;
+    background-color: white;
 }
 
     .pricing-box .plan {
