@@ -13,14 +13,19 @@ namespace Dream.Controllers
     public class OfertaEmpleosController : Controller
     {
         private BdDreamJobEntities db = new BdDreamJobEntities();
+        private string correo;
+
+        public OfertaEmpleosController(string correo)
+        {
+            this.correo = correo;
+        }
 
         // GET: OfertaEmpleos
         public ActionResult Index()
         {
-            var ofertaEmpleo = db.OfertaEmpleo.Include(o => o.Cargo).Include(o => o.Categoria).Include(o => o.DatosEmpresa);
+            var ofertaEmpleo = db.OfertaEmpleo.Include(o => o.Cargo).Include(o => o.Categoria).Include(o => o.DatosEmpresa).Where(o => o.estado=="Activo" /*&& o.DatosEmpresa.Usuario.correo == correo*/) ;
             return View(ofertaEmpleo.ToList());
         }
-
         // GET: OfertaEmpleos/Details/5
         public ActionResult Details(int? id)
         {

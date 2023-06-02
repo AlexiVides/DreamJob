@@ -13,6 +13,9 @@ namespace Dream.Controllers
     public class DatosEmpresasController : Controller
     {
         private BdDreamJobEntities db = new BdDreamJobEntities();
+      
+
+     
 
         // GET: DatosEmpresas
         public ActionResult Index()
@@ -39,7 +42,7 @@ namespace Dream.Controllers
         // GET: DatosEmpresas/Create
         public ActionResult Create()
         {
-            ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo");
+            ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario");
             return View();
         }
 

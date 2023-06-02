@@ -42,114 +42,127 @@
     </div>
 </section>
 
-
-
-<section>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
-          integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
-
-    <section class="section" id="pricing">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-box text-center">
-                        <h3 class="title-heading mt-4"> </h3>
-                        <p class="text-muted f-17 mt-3">
-
-                        </p>
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-5 pt-4">
-                <div class="col-lg-4">
+<div class="btn-volver">
+    @Html.ActionLink("Crear", "Create")
+</div>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4" id="pricing">
+                <div class="panel-default border border-secondary" style="backdrop-filter: blur(1rem) margin-top: 20px; border-radius: 20px; ">
                     <div class="pricing-box mt-4">
-                        <img src="~/Content/img/logo.png" height="70" class="mt-3" alt="">
+                        <img src="https://cdn.milenio.com/uploads/media/2021/01/01/empleo-foto-shutterstock.jpg" height="70" class="mt-3" alt="">
                         <h4 class="f-20">Oferta</h4>
 
-                        <div class="mt-4 pt-2">
+                        <div class="mt-4 pt-2" ;>
                             <p>
-                                Vacante:
-
-
-                            </p>
-
-
-                            <p class="mb-2">
-
-                                Numero de vacantes
+                                Vacante : @Html.DisplayFor(modelItem => item.nombre)
 
                             </p>
                             <p class="mb-2">
-
-                                Salario:
-
+                                Numero de vacantes :  @Html.DisplayFor(modelItem => item.nVacantes)
                             </p>
                             <p class="mb-2">
-
-
+                                Salario :@Html.DisplayNameFor(model => model.Salario)
                             </p>
-
+                            <p class="mb-2">
+                                <div class="btn-detalle" style="margin: 10px 33px;">
+                                    @Html.ActionLink("Detalles", "Details", new { id = item.idOfertaEmpleo })
+                                </div>
+                                @*<div class="btn-detalle" style="margin: 5px 2px;">
+                    @Html.ActionLink("Actualizar", "Edit", new { id = item.idOfertaEmpleo })
+                </div>
+                <div class="btn-detalle" style="margin: 5px 101px;">
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idOfertaEmpleo })
+                </div>*@
+                            </p>
                         </div>
 
 
 
+                    </div>
+
+                   
+
+                   
+
+                        
+
+                   
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
 
 
 
-                        <div class="mt-4 pt-3">
-                            <a href="" class="btn btn-primary btn-rounded">Ver detalles</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<section>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+          integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+    @foreach (var item in Model)
+    {*@
+
+@*<section class="section" id="pricing">
+
+        <div class="container">
+                <div class="row mt-5 pt-4">
+                    <div class="col-lg-4">
+                        <div class="pricing-box mt-4"  margin-top: 20px; border-radius: 20px; ">
+
+                                <img src="~/Content/img/logo.png" height="70" class="mt-3" alt="">
+                                <h4 class="f-20">Oferta</h4>
+
+                                <div class="mt-4 pt-2">
+                                    <p>
+                                        Vacante : @Html.DisplayFor(modelItem => item.nombre)
+
+                                    </p>
+                                    <p class="mb-2">
+                                        Numero de vacantes :  @Html.DisplayFor(modelItem => item.nVacantes)
+                                    </p>
+                                    <p class="mb-2">
+                                        Salario :@Html.DisplayNameFor(model => model.Salario)
+                                    </p>
+                                    <p class="mb-2">
+                                    </p>
+                                </div>
+
+
+                                <div class="mt-4 pt-3 btn btn-primary btn-rounded">
+                                    @Html.ActionLink("Dettale", "Details", new { id = item.idOfertaEmpleo })
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-
             </div>
-        </div>
-    </section>
-</section>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
 
-            @Html.DisplayNameFor(model => model.nVacantes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.requerimientos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.funciones)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Salario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.prestaciones)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cargo.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Categoria.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DatosEmpresa.nombre)
-        </th>
-        <th></th>
-    </tr>
+    </section>*@
+            @*}*@
 
-    @foreach (var item in Model)
+@*</section>*@
+
+
+@*@foreach (var item in Model)
     {
         <tr>
             <td>
@@ -191,6 +204,4 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.idOfertaEmpleo })
             </td>
         </tr>
-    }
-
-</table>
+    }*@

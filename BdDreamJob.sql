@@ -18,12 +18,22 @@ nombre nvarchar(50) not null,
 estado nvarchar(50) not null
 );
 
+insert into Cargo values('Programador','Activo') ;
+insert into Cargo values('Medico','Activo') ;
+insert into Cargo values('Contador','Activo') ;
+
+
+
 create table Categoria
 (
 idCategoria int primary key identity(1,1) not null,
 nombre nvarchar(50) not null,
 estado nvarchar(50) not null
 );
+
+insert into Categoria Values('Medicina','Activo')
+insert into Categoria Values('Economia','Activo')
+insert into Categoria Values('Tecnologia','Activo')
 
 create table Usuario
 (
@@ -36,18 +46,8 @@ idRol int foreign key references Rol(idRol)
 
 insert into Usuario (correo,contra,estado,idRol) 
 values('alexi@gmail.com','1','Activo',1);
-
-create table DatosEmpresa
-(
-idDatosEmpresa int primary key identity(1,1) not null,
-nombre nvarchar(100) not null,
-direccion nvarchar(1000) not null,
-telefono nvarchar(12) not null,
-licencia nvarchar(100) not null,
-descripcion nvarchar(1000) not null,
-estado nvarchar(50) not null,
-idUsuario int foreign key references Usuario(idUsuario)
-);
+insert into Usuario (correo,contra,estado,idRol) 
+values('nestor@gmail.com','1','Activo',2);
 
 create table Curriculum
 (
@@ -72,6 +72,23 @@ estado nvarchar(50) not null,
 idUsuario int foreign key references Usuario(idUsuario)
 );
 
+select * from Usuario
+
+
+create table DatosEmpresa
+(
+idDatosEmpresa int primary key identity(1,1) not null,
+nombre nvarchar(100) not null,
+direccion nvarchar(1000) not null,
+telefono nvarchar(12) not null,
+licencia nvarchar(100) not null,
+descripcion nvarchar(1000) not null,
+estado nvarchar(50) not null,
+idUsuario int foreign key references Usuario(idUsuario)
+);
+
+
+
 create table OfertaEmpleo
 (
 idOfertaEmpleo int primary key identity(1,1) not null,
@@ -94,3 +111,5 @@ idAplicacion int primary key identity(1,1) not null,
 idCurriculum int foreign key references Curriculum(idCurriculum),
 idOfertaEmpleo int foreign key references OfertaEmpleo(idOfertaEmpleo)
 );
+
+

@@ -13,6 +13,7 @@ namespace Dream.Controllers
     public class CurriculaController : Controller
     {
         private BdDreamJobEntities db = new BdDreamJobEntities();
+       
 
         // GET: Curricula
         public ActionResult Index()
@@ -39,7 +40,7 @@ namespace Dream.Controllers
         // GET: Curricula/Create
         public ActionResult Create()
         {
-            ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo");
+            ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario");
             return View();
         }
 
