@@ -13,12 +13,7 @@ namespace Dream.Controllers
     public class OfertaEmpleosController : Controller
     {
         private BdDreamJobEntities db = new BdDreamJobEntities();
-        private string correo;
-
-        public OfertaEmpleosController(string correo)
-        {
-            this.correo = correo;
-        }
+       
 
         // GET: OfertaEmpleos
         public ActionResult Index()
