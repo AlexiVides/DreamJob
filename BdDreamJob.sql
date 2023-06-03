@@ -11,18 +11,6 @@ estado nvarchar(50) not null
 insert into Rol values(1,'Activo');
 insert into Rol values(2,'Activo');
 
-create table Cargo
-(
-idCargo int primary key identity(1,1) not null,
-nombre nvarchar(50) not null,
-estado nvarchar(50) not null
-);
-
-insert into Cargo values('Programador','Activo') ;
-insert into Cargo values('Medico','Activo') ;
-insert into Cargo values('Contador','Activo') ;
-
-
 
 create table Categoria
 (
@@ -44,10 +32,6 @@ estado nvarchar(50) not null,
 idRol int foreign key references Rol(idRol)
 );
 
-insert into Usuario (correo,contra,estado,idRol) 
-values('alexi@gmail.com','1','Activo',1);
-insert into Usuario (correo,contra,estado,idRol) 
-values('nestor@gmail.com','1','Activo',2);
 
 create table Curriculum
 (
@@ -58,7 +42,7 @@ edad int not null,
 genero nvarchar(100) not null,
 direccion nvarchar(1000) not null,
 telefono nvarchar(12) not null,
-dui int not null,
+dui nvarchar(10) not null,
 licencia nvarchar(50) not null,
 nivelAcademico nvarchar(100) not null,
 historialAcademico nvarchar(1000) not null,
@@ -99,9 +83,9 @@ requerimientos nvarchar(1000) not null,
 funciones nvarchar(1000) not null,
 Salario float null,
 prestaciones varchar(100) null,
+cargo nvarchar(50) not null,
 estado nvarchar(50) not null,
 idCategoria int foreign key references Categoria(idCategoria),
-idCargo int foreign key references Cargo(idCargo),
 idDatosEmpresa int foreign key references DatosEmpresa(idDatosEmpresa)
 );
 
