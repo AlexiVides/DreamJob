@@ -11,6 +11,11 @@ namespace Dream.Controllers
         // GET: HomeEmpresa
         public ActionResult Index()
         {
+            //Aca nos traemos el nombre de la empresa
+            string nombre = TempData["Nombre"] as string;
+            TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+            ViewBag.Nombre = nombre;
+            ViewData["Mensaje"] = nombre;
             return View();
         }
 

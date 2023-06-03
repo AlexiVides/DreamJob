@@ -8,16 +8,14 @@ namespace Dream.Controllers
 {
     public class HomeEmpleadoController : Controller
     {
-        private string correo;
-
-        public HomeEmpleadoController(string correo)
-        {
-            this.correo = correo;
-        }
-
+       
         // GET: HomeEmpleado
         public ActionResult Index()
         {
+            string nombre = TempData["Nombre"] as string;
+            TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+            ViewBag.Nombre = nombre;
+            ViewData["Mensaje"] = nombre;
             return View();
         }
 

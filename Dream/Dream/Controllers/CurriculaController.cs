@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using Dream.Models;
 
@@ -14,6 +16,9 @@ namespace Dream.Controllers
     {
         private BdDreamJobEntities db = new BdDreamJobEntities();
        
+
+       
+
 
         // GET: Curricula
         public ActionResult Index()
@@ -40,7 +45,7 @@ namespace Dream.Controllers
         // GET: Curricula/Create
         public ActionResult Create()
         {
-            ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario");
+            ViewBag.idUsuario = new SelectList(db.Usuario);
             return View();
         }
 
@@ -53,9 +58,23 @@ namespace Dream.Controllers
         {
             if (ModelState.IsValid)
             {
+                curriculum.estado = "Activo";
+                int idU = db.Usuario
+               .OrderByDescending(p => p.idUsuario)
+               .Select(p => p.idUsuario)
+               .FirstOrDefault();
+
+                curriculum.idUsuario = idU;
                 db.Curriculum.Add(curriculum);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                string nombre =db.Curriculum
+                .OrderByDescending(r => r.idCurriculum)
+                .Select(r => r.nombre)
+                .FirstOrDefault();
+
+                TempData["Nombre"] = nombre;
+                return RedirectToAction("Index", "HomeEmpleado");
             }
 
             ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo", curriculum.idUsuario);

@@ -48,14 +48,35 @@ namespace Dream.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idUsuario,correo,contra,estado,idRol")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "idUsuario,correo,contra,estado,idRol")] Usuario usuario,int rol)
         {
-            if (ModelState.IsValid)
+
+           
+            //ViewBag.Nombre = nombre;
+            if (rol == 1)
             {
-                db.Usuario.Add(usuario);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    usuario.estado = "Activo";
+                    usuario.idRol = 1;
+                    db.Usuario.Add(usuario);
+                    db.SaveChanges();
+                    return RedirectToAction("Create", "DatosEmpresas");
+                }
             }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    usuario.estado = "Activo";
+                    usuario.idRol = 2;
+                    db.Usuario.Add(usuario);
+                    db.SaveChanges();
+                    return RedirectToAction("Create", "Curricula");
+                }
+            }
+
+           
 
             ViewBag.idRol = new SelectList(db.Rol, "idRol", "rol1", usuario.idRol);
             return View(usuario);

@@ -55,9 +55,26 @@ namespace Dream.Controllers
         {
             if (ModelState.IsValid)
             {
+                datosEmpresa.estado = "Activo";
+
+                int idE = db.Usuario
+               .OrderByDescending(p => p.idUsuario)
+               .Select(p => p.idUsuario)
+               .FirstOrDefault();
+
+                datosEmpresa.idUsuario = idE;
+
+
                 db.DatosEmpresa.Add(datosEmpresa);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                string nombreE = db.DatosEmpresa
+                .OrderByDescending(r => r.idDatosEmpresa)
+                .Select(r => r.nombre)
+                .FirstOrDefault();
+
+                TempData["Nombre"] = nombreE;
+                return RedirectToAction("Index", "HomeEmpresa");
             }
 
             ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo", datosEmpresa.idUsuario);

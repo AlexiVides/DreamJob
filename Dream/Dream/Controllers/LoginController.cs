@@ -18,17 +18,7 @@ namespace Dream.Controllers
         public ActionResult EleccionRol(string opcion)
         {
 
-            //if (opcion == "pagina1")
-            //{
-            //    return RedirectToAction("Create", "Curricula");
-            //}
-            //else if (opcion == "pagina2")
-            //{
-            //    return RedirectToAction("Create", "DatosEmpresas");
-            //}
-
-            //// En caso de que no se haya seleccionado una opción válida
-            
+          
             return View();
         }
 
@@ -38,13 +28,22 @@ namespace Dream.Controllers
         public ActionResult Pagina1()
         {
             // Lógica y vista para la Pagina1
-            return RedirectToAction("Create", "Curricula");
+
+
+            int rol = 2;
+            TempData["IdRol"] = rol;
+            //return RedirectToAction("Create", "Curricula" ,new { dato = rol }) ;
+            return RedirectToAction("Create", "Usuarios" ,new { rol = rol }) ;
+
+
         }
 
         public ActionResult Pagina2()
         {
             // Lógica y vista para la Pagina2
-            return RedirectToAction("Create", "DatosEmpresas");
+            int rol = 1;
+            TempData["IdRol"] = rol;
+            return RedirectToAction("Create", "Usuarios",  new { rol = rol });
         }
 
 
@@ -77,19 +76,32 @@ namespace Dream.Controllers
                     //Si es 1 es Empresa
                     if (user.idRol == 1)
                     {
-                        //DatosEmpresasController datosEmpresasController = new DatosEmpresasController(user.correo);
-                        //OfertaEmpleosController ofertaEmpleosController = new OfertaEmpleosController(user.correo);
+                        string nombreEmpresa = db.DatosEmpresa
+                     .Where(p => p.idUsuario == user.idUsuario)
+                     .Select(p => p.nombre)
+                     .FirstOrDefault();
+
+                        string nombre = nombreEmpresa;
+                        TempData["Nombre"] = nombre;
+
                         return RedirectToAction("Index", "HomeEmpresa");
                         
-                        //Session["User"] = user;
+                       
                     }
                     //Si es 2 es Futuro empleado
                     else if (user.idRol == 2)
                     {
-                        //CurriculaController curricula = new CurriculaController(user.correo);
-                        //HomeEmpleadoController homeEmpleadoController = new HomeEmpleadoController(user.correo);
+                       
+                       string nombreUsuario = db.Curriculum
+                      .Where(p => p.idUsuario == user.idUsuario)
+                      .Select(p => p.nombre)
+                      .FirstOrDefault();
 
-                        return RedirectToAction("Index", "HomeEmpleado");
+
+                        string nombre = nombreUsuario;
+                        TempData["Nombre"] = nombre;
+
+                        return RedirectToAction("Index", "HomeEmpleado" );
                         //Session["User"] = user;
                     }
 
