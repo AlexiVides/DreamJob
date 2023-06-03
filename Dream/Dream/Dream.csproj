@@ -143,9 +143,6 @@
     <Compile Include="Models\Aplicacion.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Cargo.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Categoria.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

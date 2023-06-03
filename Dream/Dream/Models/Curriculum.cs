@@ -27,7 +27,7 @@ namespace Dream.Models
         public string genero { get; set; }
         public string direccion { get; set; }
         public string telefono { get; set; }
-        public int dui { get; set; }
+        public string dui { get; set; }
         public string licencia { get; set; }
         public string nivelAcademico { get; set; }
         public string historialAcademico { get; set; }

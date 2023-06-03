@@ -63,7 +63,7 @@ namespace Dream.Controllers
         {
             try
             {
-                using (BdDreamJobEntities db = new BdDreamJobEntities())
+                using (BdDreamJobEntities1 db = new BdDreamJobEntities1())
                 {
                     var user = db.Usuario.Where(x => x.correo.Trim() == log.correo && x.contra == log.contra.Trim()).FirstOrDefault();
 

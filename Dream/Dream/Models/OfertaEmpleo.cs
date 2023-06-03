@@ -28,14 +28,13 @@ namespace Dream.Models
         public string funciones { get; set; }
         public Nullable<double> Salario { get; set; }
         public string prestaciones { get; set; }
+        public string cargo { get; set; }
         public string estado { get; set; }
         public Nullable<int> idCategoria { get; set; }
-        public Nullable<int> idCargo { get; set; }
         public Nullable<int> idDatosEmpresa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Aplicacion> Aplicacion { get; set; }
-        public virtual Cargo Cargo { get; set; }
         public virtual Categoria Categoria { get; set; }
         public virtual DatosEmpresa DatosEmpresa { get; set; }
     }

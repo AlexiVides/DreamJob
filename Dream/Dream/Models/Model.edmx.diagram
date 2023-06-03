@@ -4,23 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dddf5233e17e4f53badedd43e9175ae7" Name="Diagram1">
+      <Diagram DiagramId="7583aed3e8794179879baa9da698f5e6" Name="Diagram1">
         <EntityTypeShape EntityType="BdDreamJobModel.Aplicacion" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BdDreamJobModel.Cargo" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="BdDreamJobModel.Categoria" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BdDreamJobModel.Curriculum" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BdDreamJobModel.DatosEmpresa" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BdDreamJobModel.Categoria" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BdDreamJobModel.Curriculum" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BdDreamJobModel.DatosEmpresa" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BdDreamJobModel.OfertaEmpleo" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BdDreamJobModel.Rol" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BdDreamJobModel.Usuario" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <AssociationConnector Association="BdDreamJobModel.FK__Aplicacio__idCur__4AB81AF0" ManuallyRouted="false" />
-        <AssociationConnector Association="BdDreamJobModel.FK__Aplicacio__idOfe__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="BdDreamJobModel.FK__OfertaEmp__idCar__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="BdDreamJobModel.FK__OfertaEmp__idCat__45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="BdDreamJobModel.FK__Curriculu__idUsu__4316F928" ManuallyRouted="false" />
-        <AssociationConnector Association="BdDreamJobModel.FK__DatosEmpr__idUsu__403A8C7D" ManuallyRouted="false" />
-        <AssociationConnector Association="BdDreamJobModel.FK__OfertaEmp__idDat__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="BdDreamJobModel.FK__Usuario__idRol__3D5E1FD2" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BdDreamJobModel.Rol" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BdDreamJobModel.Usuario" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="BdDreamJobModel.FK__Aplicacio__idCur__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="BdDreamJobModel.FK__Aplicacio__idOfe__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="BdDreamJobModel.FK__OfertaEmp__idCat__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="BdDreamJobModel.FK__Curriculu__idUsu__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="BdDreamJobModel.FK__DatosEmpr__idUsu__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="BdDreamJobModel.FK__OfertaEmp__idDat__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="BdDreamJobModel.FK__Usuario__idRol__286302EC" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,13 +12,13 @@ namespace Dream.Controllers
 {
     public class OfertaEmpleosController : Controller
     {
-        private BdDreamJobEntities db = new BdDreamJobEntities();
+        private BdDreamJobEntities1 db = new BdDreamJobEntities1();
        
 
         // GET: OfertaEmpleos
         public ActionResult Index()
         {
-            var ofertaEmpleo = db.OfertaEmpleo.Include(o => o.Cargo).Include(o => o.Categoria).Include(o => o.DatosEmpresa).Where(o => o.estado=="Activo" /*&& o.DatosEmpresa.Usuario.correo == correo*/) ;
+            var ofertaEmpleo = db.OfertaEmpleo.Include(o => o.Categoria).Include(o => o.DatosEmpresa).Where(o => o.estado=="Activo" /*&& o.DatosEmpresa.Usuario.correo == correo*/) ;
             return View(ofertaEmpleo.ToList());
         }
         // GET: OfertaEmpleos/Details/5
@@ -39,7 +39,7 @@ namespace Dream.Controllers
         // GET: OfertaEmpleos/Create
         public ActionResult Create()
         {
-            ViewBag.idCargo = new SelectList(db.Cargo, "idCargo", "nombre");
+           
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nombre");
             ViewBag.idDatosEmpresa = new SelectList(db.DatosEmpresa, "idDatosEmpresa", "nombre");
             return View();
@@ -50,7 +50,7 @@ namespace Dream.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idOfertaEmpleo,nombre,nVacantes,descripcion,requerimientos,funciones,Salario,prestaciones,estado,idCategoria,idCargo,idDatosEmpresa")] OfertaEmpleo ofertaEmpleo)
+        public ActionResult Create([Bind(Include = "idOfertaEmpleo,nombre,nVacantes,descripcion,requerimientos,funciones,Salario,prestaciones,cargo,estado,idCategoria,idDatosEmpresa")] OfertaEmpleo ofertaEmpleo)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +59,7 @@ namespace Dream.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idCargo = new SelectList(db.Cargo, "idCargo", "nombre", ofertaEmpleo.idCargo);
+           
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nombre", ofertaEmpleo.idCategoria);
             ViewBag.idDatosEmpresa = new SelectList(db.DatosEmpresa, "idDatosEmpresa", "nombre", ofertaEmpleo.idDatosEmpresa);
             return View(ofertaEmpleo);
@@ -77,7 +77,6 @@ namespace Dream.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idCargo = new SelectList(db.Cargo, "idCargo", "nombre", ofertaEmpleo.idCargo);
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nombre", ofertaEmpleo.idCategoria);
             ViewBag.idDatosEmpresa = new SelectList(db.DatosEmpresa, "idDatosEmpresa", "nombre", ofertaEmpleo.idDatosEmpresa);
             return View(ofertaEmpleo);
@@ -88,7 +87,7 @@ namespace Dream.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idOfertaEmpleo,nombre,nVacantes,descripcion,requerimientos,funciones,Salario,prestaciones,estado,idCategoria,idCargo,idDatosEmpresa")] OfertaEmpleo ofertaEmpleo)
+        public ActionResult Edit([Bind(Include = "idOfertaEmpleo,nombre,nVacantes,descripcion,requerimientos,funciones,Salario,prestaciones,cargo,estado,idCategoria,idDatosEmpresa")] OfertaEmpleo ofertaEmpleo)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +95,6 @@ namespace Dream.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idCargo = new SelectList(db.Cargo, "idCargo", "nombre", ofertaEmpleo.idCargo);
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nombre", ofertaEmpleo.idCategoria);
             ViewBag.idDatosEmpresa = new SelectList(db.DatosEmpresa, "idDatosEmpresa", "nombre", ofertaEmpleo.idDatosEmpresa);
             return View(ofertaEmpleo);
