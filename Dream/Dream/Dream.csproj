@@ -185,6 +185,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\DetallesOfer.css" />
     <Content Include="Content\HomeE.css" />
+    <Content Include="Content\HomeEmpresa.css" />
     <Content Include="Content\img\agricola.png" />
     <Content Include="Content\img\aula-de-clase-con-ninos-y-maestra.jpg" />
     <Content Include="Content\img\bombero.jpg" />
@@ -195,8 +196,11 @@
     <Content Include="Content\img\dental.jpg" />
     <Content Include="Content\img\dia-del-programador-festejo-con-escasez-de-profesionales-1013463.jpg" />
     <Content Include="Content\img\diana.png" />
+    <Content Include="Content\img\economista.jpg" />
     <Content Include="Content\img\edificio.jpg" />
+    <Content Include="Content\img\empresa.jpg" />
     <Content Include="Content\img\empresario.png" />
+    <Content Include="Content\img\fondo-empresa.jpg" />
     <Content Include="Content\img\fondo.jpg" />
     <Content Include="Content\img\fondo1.jpg" />
     <Content Include="Content\img\hotelcrow.jpg" />
@@ -206,10 +210,12 @@
     <Content Include="Content\img\lacalaca.png" />
     <Content Include="Content\img\laconstan.jpg" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\medico.jpg" />
     <Content Include="Content\img\panaderia.jpeg" />
     <Content Include="Content\img\pexels-pavel-danilyuk-7594121.jpg" />
     <Content Include="Content\img\pexels-pixabay-356040 %281%29.jpg" />
     <Content Include="Content\img\profamil.jpg" />
+    <Content Include="Content\img\programadora.jpg" />
     <Content Include="Content\img\tecnolo.jpg" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Ofert.css" />
