@@ -129,7 +129,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CurriculaController.cs" />
+    <Compile Include="Controllers\CurriculuController.cs" />
     <Compile Include="Controllers\DatosEmpresasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeEmpleadoController.cs" />
@@ -183,6 +183,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Curricul.css" />
     <Content Include="Content\DetallesOfer.css" />
     <Content Include="Content\HomeE.css" />
     <Content Include="Content\HomeEmpresa.css" />
@@ -267,11 +268,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Curricula\Create.cshtml" />
-    <Content Include="Views\Curricula\Delete.cshtml" />
-    <Content Include="Views\Curricula\Details.cshtml" />
-    <Content Include="Views\Curricula\Edit.cshtml" />
-    <Content Include="Views\Curricula\Index.cshtml" />
     <Content Include="Views\Usuarios\Create.cshtml" />
     <Content Include="Views\Usuarios\Delete.cshtml" />
     <Content Include="Views\Usuarios\Details.cshtml" />
@@ -291,6 +287,11 @@
     <Content Include="Views\OfertaEmpleos\Edit.cshtml" />
     <Content Include="Views\OfertaEmpleos\Index.cshtml" />
     <Content Include="Views\Login\EleccionRol.cshtml" />
+    <Content Include="Views\Curriculu\Create.cshtml" />
+    <Content Include="Views\Curriculu\Delete.cshtml" />
+    <Content Include="Views\Curriculu\Details.cshtml" />
+    <Content Include="Views\Curriculu\Edit.cshtml" />
+    <Content Include="Views\Curriculu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

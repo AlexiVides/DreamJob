@@ -1,6 +1,6 @@
 create database BdDreamJob
 use BdDreamJob
-
+drop database BdDreamJob
 create table Rol
 (
 idRol int primary key identity(1,1) not null,
@@ -31,7 +31,7 @@ contra nvarchar(50) not null,
 estado nvarchar(50) not null,
 idRol int foreign key references Rol(idRol)
 );
-insert into Usuario Values ('maye@gmail.com','11','Activo','1')
+
 
 create table Curriculum
 (
@@ -95,4 +95,5 @@ idAplicacion int primary key identity(1,1) not null,
 idCurriculum int foreign key references Curriculum(idCurriculum),
 idOfertaEmpleo int foreign key references OfertaEmpleo(idOfertaEmpleo)
 );
+
 

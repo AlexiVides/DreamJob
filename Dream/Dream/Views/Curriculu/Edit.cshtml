@@ -1,0 +1,172 @@
+﻿@model Dream.Models.Curriculum
+
+@*@{
+    Layout = null;
+}*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    @Styles.Render("~/Content/Curricul.css")
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h3>Editar Curriculum</h3>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.idCurriculum)
+
+
+            <div class="container rounded bg-white mt-5 mb-5" id="D1">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <br />
+                </div><br />
+
+                <div class="row" >
+                    <br /><br />
+
+                    <div class="col-md-5 border-right" id="frm1">
+                        <div class="p-3 py-5">
+
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="labels">Nombre</label>
+                                    @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="labels">Apellidos</label>
+                                    @Html.EditorFor(model => model.apellido, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Edad</label>
+                                    @Html.EditorFor(model => model.edad, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.edad, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="labels">Genero</label>
+                                    @Html.EditorFor(model => model.genero, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.genero, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Direccion</label>
+                                    @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="labels">Telefono</label>
+                                    @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">DUI</label>
+                                    @Html.EditorFor(model => model.dui, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.dui, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="labels">Licencia</label>
+                                    @Html.EditorFor(model => model.licencia, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.licencia, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Nivel academico</label>
+                                    @Html.EditorFor(model => model.nivelAcademico, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.nivelAcademico, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="labels">Historila academico</label>
+                                    @Html.EditorFor(model => model.historialAcademico, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.historialAcademico, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Referencias personales</label>
+                                    @Html.EditorFor(model => model.referenciaPers, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.referenciaPers, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="labels">Experiencia laboral</label>
+                                    @Html.EditorFor(model => model.experienciaLab, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.experienciaLab, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Descripcion</label>
+                                    @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="labels">Correo electronico OPC</label>
+                                    @Html.EditorFor(model => model.correoOpc, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.correoOpc, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Segundo idioma</label>
+                                    @Html.EditorFor(model => model.segundoIdioma, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.segundoIdioma, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Estado</label>
+                                    @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Usuario</label>
+                                    @Html.DropDownList("idUsuario", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.idUsuario, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10" id="btn">
+                                        <input type="submit" value="Save" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
+
+<style>
+    #D1{
+        width:1000px;
+        border-radius:20px;
+        position:center;
+        left:1000px;
+        opacity:0.9;
+    }
+    #frm1{
+        position:center;
+        left:250px;
+    }
+
+    #btn{
+        position:center;
+        left:580px;
+        top:5px;
+    }
+</style>
