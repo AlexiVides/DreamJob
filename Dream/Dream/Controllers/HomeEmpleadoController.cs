@@ -8,7 +8,7 @@ namespace Dream.Controllers
 {
     public class HomeEmpleadoController : Controller
     {
-       
+
         // GET: HomeEmpleado
         public ActionResult Index()
         {
@@ -18,6 +18,79 @@ namespace Dream.Controllers
             ViewData["Mensaje"] = nombre;
             return View();
         }
+
+
+        public ActionResult PaginaMercadeo()
+        {
+
+            string categoria = "Mercadeo";
+            TempData["IdCategorio"] = categoria;
+            return RedirectToAction("Index2", "OfertaEmpleos", new { categoria = categoria });
+        }
+
+
+        public ActionResult PaginaTecnologia()
+        {
+            string categoria = "Tecnologia";
+            TempData["IdCategorio"] = categoria;
+            return RedirectToAction("Index2", "OfertaEmpleos", new { categoria = categoria });
+        }
+
+
+        public ActionResult PaginaRecursosHumanos()
+        {
+            string categoria = "Recursos Humanos";
+            TempData["IdCategorio"] = categoria;
+            return RedirectToAction("Index2", "OfertaEmpleos", new { categoria = categoria });
+        }
+
+        public ActionResult PaginaContabilidad()
+        {
+            string categoria = "Contabilidad";
+            TempData["IdCategorio"] = categoria;
+            return RedirectToAction("Index2", "OfertaEmpleos", new { categoria = categoria });
+        }
+
+        public ActionResult PaginaSalud()
+        {
+            string categoria = "Salud";
+            TempData["IdCategorio"] = categoria;
+            return RedirectToAction("Index2", "OfertaEmpleos", new { categoria = categoria });
+        }
+
+        public ActionResult PaginaConstruccion()
+        {
+            string categoria = "Construccion";
+            TempData["IdCategorio"] = categoria;
+            return RedirectToAction("Index2", "OfertaEmpleos", new { categoria = categoria });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // GET: HomeEmpleado/Details/5
         public ActionResult Details(int id)

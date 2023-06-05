@@ -48,10 +48,10 @@ namespace Dream.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idUsuario,correo,contra,estado,idRol")] Usuario usuario,int rol)
+        public ActionResult Create([Bind(Include = "idUsuario,correo,contra,estado,idRol")] Usuario usuario, int rol)
         {
 
-           
+
             //ViewBag.Nombre = nombre;
             if (rol == 1)
             {
@@ -61,6 +61,8 @@ namespace Dream.Controllers
                     usuario.idRol = 1;
                     db.Usuario.Add(usuario);
                     db.SaveChanges();
+                    string gmail = usuario.correo;                   
+                    TempData["Mensaje"] = gmail;
                     return RedirectToAction("Create", "DatosEmpresas");
                 }
             }
@@ -70,13 +72,16 @@ namespace Dream.Controllers
                 {
                     usuario.estado = "Activo";
                     usuario.idRol = 2;
+
                     db.Usuario.Add(usuario);
                     db.SaveChanges();
-                    return RedirectToAction("Create", "Curricula");
+                    string gmail = usuario.correo;
+                    TempData["Mensaje"] = gmail;
+                    return RedirectToAction("Create", "Curriculu");
                 }
             }
 
-           
+
 
             ViewBag.idRol = new SelectList(db.Rol, "idRol", "rol1", usuario.idRol);
             return View(usuario);

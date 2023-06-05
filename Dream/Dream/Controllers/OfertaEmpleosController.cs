@@ -13,14 +13,34 @@ namespace Dream.Controllers
     public class OfertaEmpleosController : Controller
     {
         private BdDreamJobEntities1 db = new BdDreamJobEntities1();
-       
+
 
         // GET: OfertaEmpleos
-        public ActionResult Index()
+        public ActionResult TodasLasOfertas()
         {
-            var ofertaEmpleo = db.OfertaEmpleo.Include(o => o.Categoria).Include(o => o.DatosEmpresa).Where(o => o.estado=="Activo" /*&& o.DatosEmpresa.Usuario.correo == correo*/) ;
+            string nombre = TempData["Nombre"] as string;
+            TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+            ViewBag.Nombre = nombre;
+            var ofertaEmpleo = db.OfertaEmpleo.Include(o => o.Categoria).Include(o => o.DatosEmpresa).Where(o => o.estado == "Activo" && o.DatosEmpresa.nombre == nombre);
             return View(ofertaEmpleo.ToList());
         }
+
+        public ActionResult Index(string nombre, string categoria)
+        {
+            var ofertaEmpleo = db.OfertaEmpleo.Include(o => o.Categoria).Include(o => o.DatosEmpresa).Where(o => o.estado == "Activo" && o.DatosEmpresa.nombre == nombre && o.Categoria.nombre == categoria);
+            return View(ofertaEmpleo.ToList());
+        }
+
+
+        //Este Index2 es el que se les mostrara a los empleados
+        public ActionResult Index2(string categoria)
+        {
+            var ofertaEmpleo = db.OfertaEmpleo.Include(o => o.Categoria).Include(o => o.DatosEmpresa).Where(o => o.estado == "Activo" && o.Categoria.nombre == categoria);
+            return View(ofertaEmpleo.ToList());
+        }
+
+
+
         // GET: OfertaEmpleos/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,6 +55,27 @@ namespace Dream.Controllers
             }
             return View(ofertaEmpleo);
         }
+
+        public ActionResult Details2(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            OfertaEmpleo ofertaEmpleo = db.OfertaEmpleo.Find(id);
+            if (ofertaEmpleo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(ofertaEmpleo);
+        }
+
+
+
+
+
+
+
 
         // GET: OfertaEmpleos/Create
         public ActionResult Create()
@@ -54,6 +95,17 @@ namespace Dream.Controllers
         {
             if (ModelState.IsValid)
             {
+                string nombre = TempData["Nombre"] as string;
+                TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+                ViewBag.Nombre = nombre;
+
+                int Empresa = db.DatosEmpresa
+                        .Where(p => p.nombre == nombre)
+                        .Select(p => p.idDatosEmpresa)
+                        .FirstOrDefault();
+
+                ofertaEmpleo.estado = "Activo";
+                ofertaEmpleo.idDatosEmpresa = Empresa;               
                 db.OfertaEmpleo.Add(ofertaEmpleo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,7 +130,7 @@ namespace Dream.Controllers
                 return HttpNotFound();
             }
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nombre", ofertaEmpleo.idCategoria);
-            ViewBag.idDatosEmpresa = new SelectList(db.DatosEmpresa, "idDatosEmpresa", "nombre", ofertaEmpleo.idDatosEmpresa);
+            //ViewBag.idDatosEmpresa = new SelectList(db.DatosEmpresa, "idDatosEmpresa", "nombre", ofertaEmpleo.idDatosEmpresa);
             return View(ofertaEmpleo);
         }
 
@@ -91,6 +143,16 @@ namespace Dream.Controllers
         {
             if (ModelState.IsValid)
             {
+                string nombre = TempData["Nombre"] as string;
+                TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+                ViewBag.Nombre = nombre;
+
+                int Empresa = db.DatosEmpresa
+                        .Where(p => p.nombre == nombre)
+                        .Select(p => p.idDatosEmpresa)
+                        .FirstOrDefault();
+
+                ofertaEmpleo.idDatosEmpresa = Empresa;
                 db.Entry(ofertaEmpleo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

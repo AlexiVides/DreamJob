@@ -1,8 +1,10 @@
 ﻿@model Dream.Models.Curriculum
 
-@*@{
+@{
     Layout = null;
-    }*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+}
 
 <!DOCTYPE html>
 
@@ -30,8 +32,9 @@
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                         <img class="rounded-circle mt-5" width="150px"
                              src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                        <span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span>
-                        <span> </span>
+                        <span class="font-weight-bold">
+                            <span class="text-black-50"><strong>@ViewBag.Mensaje</strong></span>
+                            <span> </span>
                     </div>
                 </div>
                 <div class="col-md-5 border-right">
@@ -124,28 +127,18 @@
                                 @Html.ValidationMessageFor(model => model.segundoIdioma, "", new { @class = "text-danger" })
                             </div>
                             @*<div class="col-md-6">
-              <label class="labels">Foto de perfil</label>
-              @Html.EditorFor(model => model.imagen, new { htmlAttributes = new { @class = "form-control" } })
-              @Html.ValidationMessageFor(model => model.imagen, "", new { @class = "text-danger" })
-            </div>*@
-                            <div class="col-md-6">
-                                <label class="labels">Estado</label>
-                                @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="col-md-6">
-                                <label class="labels">Usuario</label>
-                                @Html.DropDownList("idUsuario", null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.idUsuario, "", new { @class = "text-danger" })
-                            </div><br />
+                                  <label class="labels">Foto de perfil</label>
+                                  @Html.EditorFor(model => model.imagen, new { htmlAttributes = new { @class = "form-control" } })
+                                  @Html.ValidationMessageFor(model => model.imagen, "", new { @class = "text-danger" })
+                                </div>*@
                         </div>
                         <div>
                             <br />
                         </div>
                         <div class="mt-5 text-center">
-                            <input class="btn btn-primary profile-button" type="submit" value="Guardar"/><br />
+                            <input class="btn btn-primary profile-button" type="submit" value="Guardar" /><br />
                         </div><br />
-                        
+
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -163,7 +156,7 @@
                             @Html.EditorFor(model => model.referenciaPers, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.referenciaPers, "", new { @class = "text-danger" })
                         </div>
-                        
+
 
                     </div>
                 </div>

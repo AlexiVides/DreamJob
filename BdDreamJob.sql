@@ -1,6 +1,6 @@
 create database BdDreamJob
 use BdDreamJob
-drop database BdDreamJob
+
 create table Rol
 (
 idRol int primary key identity(1,1) not null,
@@ -19,9 +19,12 @@ nombre nvarchar(50) not null,
 estado nvarchar(50) not null
 );
 
-insert into Categoria Values('Medicina','Activo')
-insert into Categoria Values('Economia','Activo')
+insert into Categoria Values('Mercadeo','Activo')
 insert into Categoria Values('Tecnologia','Activo')
+insert into Categoria Values('Recursos Humanos','Activo')
+insert into Categoria Values('Contabilidad','Activo')
+insert into Categoria Values('Salud','Activo')
+insert into Categoria Values('Construccion','Activo')
 
 create table Usuario
 (
@@ -31,7 +34,7 @@ contra nvarchar(50) not null,
 estado nvarchar(50) not null,
 idRol int foreign key references Rol(idRol)
 );
-
+insert into Usuario Values ('maye@gmail.com','11','Activo','1')
 
 create table Curriculum
 (
@@ -95,5 +98,4 @@ idAplicacion int primary key identity(1,1) not null,
 idCurriculum int foreign key references Curriculum(idCurriculum),
 idOfertaEmpleo int foreign key references OfertaEmpleo(idOfertaEmpleo)
 );
-
 

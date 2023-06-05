@@ -18,6 +18,10 @@ namespace Dream.Controllers
         public ActionResult Index()
         {
             var curriculum = db.Curriculum.Include(c => c.Usuario);
+
+          
+
+            
             return View(curriculum.ToList());
         }
 
@@ -39,7 +43,12 @@ namespace Dream.Controllers
         // GET: Curriculu/Create
         public ActionResult Create()
         {
+            string gmail = TempData["Mensaje"] as string;
+            TempData.Keep("Mensaje"); // Mantener los datos de TempData para la próxima solicitud
+            ViewBag.Nombre = gmail;
+            ViewData["Mensaje"] = gmail;
             ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo");
+           
             return View();
         }
 
@@ -52,9 +61,23 @@ namespace Dream.Controllers
         {
             if (ModelState.IsValid)
             {
+                curriculum.estado = "Activo";
+                int idU = db.Usuario
+               .OrderByDescending(p => p.idUsuario)
+               .Select(p => p.idUsuario)
+               .FirstOrDefault();
+
+                curriculum.idUsuario = idU;
                 db.Curriculum.Add(curriculum);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                string nombre = db.Curriculum
+                .OrderByDescending(r => r.idCurriculum)
+                .Select(r => r.nombre)
+                .FirstOrDefault();
+
+                TempData["Nombre"] = nombre;
+                return RedirectToAction("Index", "HomeEmpleado");
             }
 
             ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo", curriculum.idUsuario);

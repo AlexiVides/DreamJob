@@ -193,6 +193,8 @@
     <Content Include="Content\img\camarero.jpg" />
     <Content Include="Content\img\chef-una-profesion-revista-edu-co.jpg" />
     <Content Include="Content\img\clinica.jpg" />
+    <Content Include="Content\img\Construccion.jpg" />
+    <Content Include="Content\img\Conta.jpg" />
     <Content Include="Content\img\contador.jpg" />
     <Content Include="Content\img\dental.jpg" />
     <Content Include="Content\img\dia-del-programador-festejo-con-escasez-de-profesionales-1013463.jpg" />
@@ -212,11 +214,15 @@
     <Content Include="Content\img\laconstan.jpg" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\medico.jpg" />
+    <Content Include="Content\img\Mercadeo.jpg" />
     <Content Include="Content\img\panaderia.jpeg" />
     <Content Include="Content\img\pexels-pavel-danilyuk-7594121.jpg" />
     <Content Include="Content\img\pexels-pixabay-356040 %281%29.jpg" />
     <Content Include="Content\img\profamil.jpg" />
     <Content Include="Content\img\programadora.jpg" />
+    <Content Include="Content\img\Salud.jpg" />
+    <Content Include="Content\img\Servicio.jpg" />
+    <Content Include="Content\img\SS.jpg" />
     <Content Include="Content\img\tecnolo.jpg" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Ofert.css" />
@@ -292,6 +298,9 @@
     <Content Include="Views\Curriculu\Details.cshtml" />
     <Content Include="Views\Curriculu\Edit.cshtml" />
     <Content Include="Views\Curriculu\Index.cshtml" />
+    <Content Include="Views\OfertaEmpleos\Index2.cshtml" />
+    <Content Include="Views\OfertaEmpleos\Details2.cshtml" />
+    <Content Include="Views\OfertaEmpleos\TodasLasOfertas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

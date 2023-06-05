@@ -1,0 +1,114 @@
+﻿@model Dream.Models.OfertaEmpleo
+
+@{
+    ViewBag.Title = "Details2";
+}
+
+
+
+<!-- Link hacia el archivo de estilos css -->
+
+<link rel="stylesheet" href="css/DetallesOfer.css">
+<style type="text/css">
+</style>
+@Styles.Render("~/Content/DetallesOfer.css")
+<script type="text/javascript"></script>
+
+
+
+
+<main class="[ main ] [ flow ]">
+
+    <ul class="cards">
+        <li class="card">
+            <div class="card__img">
+                <div class="img__cover">
+                    <img src="~/Content/img/edificio.jpg" alt="" />
+                </div>
+                <div class="img__profile">
+                    <img src="~/Content/img/logo.png" alt="">
+                </div>
+            </div>
+            <div class="[ card__text ] [ flow ]">
+                <h1>
+
+                    @Html.DisplayFor(model => model.nombre)
+
+                </h1>
+                <h3>
+                    Numero de vacantes:
+                    @Html.DisplayFor(model => model.nVacantes)
+
+
+                </h3>
+                <h3>
+                    Cargo:
+                    @Html.DisplayFor(model => model.cargo)
+
+
+                </h3>
+                <h3>
+                    Descripcion:
+                    @Html.DisplayFor(model => model.descripcion)
+
+
+                </h3>
+                <h3>
+                    Requeriminetos:
+                    @Html.DisplayFor(model => model.requerimientos)
+
+
+                </h3>
+                <h3>
+                    Funciones:
+                    @Html.DisplayFor(model => model.funciones)
+
+
+                </h3>
+                <h3>
+                    Salario:
+                    @Html.DisplayFor(model => model.Salario)
+
+
+                </h3>
+                <h3>
+                    Prestaciones:
+                    @Html.DisplayFor(model => model.prestaciones)
+
+
+                </h3>
+
+                <h3>
+                    Datos empresa:
+                    @Html.DisplayFor(model => model.DatosEmpresa.nombre)
+
+
+                </h3>
+                <h3>
+                    Categoria:
+                    @Html.DisplayFor(model => model.Categoria.nombre)
+
+
+                </h3>
+            </div>
+        </li>
+    </ul>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
