@@ -185,7 +185,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Curricul.css" />
     <Content Include="Content\DetallesOfer.css" />
-    <Content Include="Content\HomeE.css" />
+    <Content Include="Content\HomeEmpleado.css" />
     <Content Include="Content\HomeEmpresa.css" />
     <Content Include="Content\img\agricola.png" />
     <Content Include="Content\img\aula-de-clase-con-ninos-y-maestra.jpg" />
