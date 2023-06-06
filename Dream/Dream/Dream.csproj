@@ -302,6 +302,7 @@
     <Content Include="Views\OfertaEmpleos\Index2.cshtml" />
     <Content Include="Views\OfertaEmpleos\Details2.cshtml" />
     <Content Include="Views\OfertaEmpleos\TodasLasOfertas.cshtml" />
+    <Content Include="Views\Shared\_LayoutEmpreado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
