@@ -9,93 +9,148 @@
 
 @Html.AntiForgeryToken()
 
+<!-- Link hacia el archivo de estilos css -->
+
+<link rel="stylesheet" href="css/CreateE.css">
+<style type="text/css">
+</style>
+@Styles.Render("~/Content/CreateE.css")
+<script type="text/javascript"></script>
+<a href="https://icons8.com/icon/LNojX5peb8UI/cliente-de-empresa"></a> <a href="https://icons8.com"></a>
+
 <body>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
 
-        <div class="container1 rounded bg-white mt-5 mb-5">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <br />
-            </div><br />
+    <section>
+        <div class="pricing-box mt-4" ">
+            <div class="card mt-5 border-5 pt-2 active pb-0 px-3 ">
+                <div class="card-body1 ">
 
-            <style>
+                    <style>
+                        .card-body {
+                            flex: 1 1 auto;
+                            min-height: 1px;
+                            padding: 3rem;
+                            background-color: white;
+                        }
 
-                .container1 {
-                    background-color: white;
-                    margin-top: 100px;
-                }
-            </style>
-            <div class="row" id="D1">
-                <br /><br />
-
-                <div class="col-md-3 border-right" id="img">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                        <img class="rounded-circle mt-5" width="150px"
-                             src="~/Content/img/Empresa2.jpg">
-                        <span class="font-weight-bold">
-                            <span class="text-black-50"><strong>@ViewBag.Mensaje</strong></span>
-                            <span> </span>
-                    </div>
-                </div>
-                <div class="col-md-5 border-right">
-                    <div>
-                        <h4>Datos Empresa</h4>
-                    </div>
-                    <div class="p-3 py-5">
-
-                        <div class="row mt-2">
-                            <div class="col-md-6">
-                                <label class="labels">Nombre</label>
-                                @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="labels">Direccion</label>
-                                @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-
-                        <div class="row mt-3">
-
-
-                            <div class="col-md-6">
-                                <label class="labels">Licencia</label>
-                                @Html.EditorFor(model => model.licencia, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.licencia, "", new { @class = "text-danger" })
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="labels">Telefono</label>
-                                @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <label class="labels">Descripcion</label>
-                                @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
-                            </div>
-
+                        .card-body1 {
+                            flex: 1 1 auto;
+                            min-height: 1px;
+                            padding: 2rem;
+                            background-color: white;
+                            margin-top: 50px;
+                        }
+                    </style>
+                    <div class="row1">
+                        <div class="col-12 ">
+                            <h4 class="card-title "><b> Formulario datos de empresa </b></h4>
 
                         </div>
-                        <div>
-                            <br />
-                        </div>
-                        <div class="mt-5 text-center">
-                            <input class="btn btn-primary profile-button" type="submit" value="Guardar" /><br />
-                        </div><br />
+                        <div class="col">
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <p class="card-text text-muted small ">
 
+                                    <img width="94" height="94" src="https://img.icons8.com/3d-fluency/94/client-company.png" alt="client-company" />
+                                </p>
+                            </h6>
+                        </div>
                     </div>
+
                 </div>
 
 
             </div>
         </div>
+    </section>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="container">
+            <div class="row1 gutters">
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="account-settings">
+                                <div class="user-profile">
+                                    <div class="user-avatar">
+                                        <img src="~/Content/img/Empresa2.jpg" alt="Maxwell Admin">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="row1 gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-2 text-primary">Datos de empresa</h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="fullName">Nombre</label>
+                                        @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="eMail">Direccion</label>
+                                        @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="phone">Licencia</label>
+                                        @Html.EditorFor(model => model.licencia, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.licencia, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Street">Descripcion</label>
+                                        @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row1 gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mt-3 mb-2 text-primary">Contacto</h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Street">Telefono</label>
+                                        @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="text-right">
+
+                                        <input type="submit" value="Create" class="btn btn-default" />
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     }
 
     <div>
