@@ -54,16 +54,23 @@
             <li class="has-subnav">
                 <span class="nav-text">
                     <img src="~/Content/img/oferta1.png" width="30" />
-                    @Html.ActionLink("Ver Ofertas", "Index", "OfertaEmpleos")
+                    @Html.ActionLink("Ver Ofertas", "TodasLasOfertas", "OfertaEmpleos")
                 </span>
                 <br />
             </li>
             <li class="has-subnav">
                 <span class="nav-text">
                     <img src="~/Content/img/user.png" width="30" />
-                    @Html.ActionLink("Perfil", "Index", "Usuarios")
+                    @Html.ActionLink("Perfil", "Details", "DatosEmpresas")
                 </span>
             </li>
+            <br />
+            <li class="has-subnav">
+            <span class="nav-text">
+                <img src="~/Content/img/user.png" width="30" />
+                @Html.ActionLink("F. Empleados", "Index2", "Curriculu")
+            </span>
+        </li>
 
         </ul>
         <ul class="logout">

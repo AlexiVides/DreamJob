@@ -13,9 +13,9 @@ namespace Dream.Controllers
     public class DatosEmpresasController : Controller
     {
         private BdDreamJobEntities1 db = new BdDreamJobEntities1();
-      
 
-     
+
+        int idDetalleE;
 
         // GET: DatosEmpresas
         public ActionResult Index()
@@ -27,11 +27,19 @@ namespace Dream.Controllers
         // GET: DatosEmpresas/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            string nombre = TempData["Nombre"] as string;
+            TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+            ViewBag.Nombre = nombre;
+
+            idDetalleE = db.DatosEmpresa
+                .Where(a => a.nombre == nombre)
+                .Select(a => a.idDatosEmpresa)
+                .FirstOrDefault();
+            if (idDetalleE == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DatosEmpresa datosEmpresa = db.DatosEmpresa.Find(id);
+            DatosEmpresa datosEmpresa = db.DatosEmpresa.Find(idDetalleE);
             if (datosEmpresa == null)
             {
                 return HttpNotFound();
@@ -106,9 +114,22 @@ namespace Dream.Controllers
         {
             if (ModelState.IsValid)
             {
+                string nombre = TempData["Nombre"] as string;
+                TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+                ViewBag.Nombre = nombre;
+                int Empresa = (from c in db.Usuario
+                               join p in db.DatosEmpresa on c.idUsuario equals p.idUsuario
+                               where p.nombre == nombre
+                               select c.idUsuario)
+                              .FirstOrDefault();
+
+                
+                datosEmpresa.estado = "Activo";
+                datosEmpresa.idUsuario = Empresa;
+
                 db.Entry(datosEmpresa).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
             ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo", datosEmpresa.idUsuario);
             return View(datosEmpresa);

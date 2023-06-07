@@ -17,27 +17,58 @@ namespace Dream.Controllers
         // GET: Curriculu
         public ActionResult Index()
         {
-            var curriculum = db.Curriculum.Include(c => c.Usuario);
-
-          
-
-            
+            var curriculum = db.Curriculum.Include(c => c.Usuario);           
             return View(curriculum.ToList());
         }
+
+        //Esta sera un tabla de todos los usuarios los cuales pueden buscar su curriculu
+        //public ActionResult Index2()
+        //{
+        //    var curriculum = db.Curriculum.Include(c => c.Usuario);
+
+        //    return View(curriculum.ToList());
+        //}
+
+        public ActionResult Index2(string buscar)
+        {
+            var listaRegistros = db.Curriculum.ToList(); 
+
+            if (!string.IsNullOrEmpty(buscar))
+            {
+                listaRegistros = listaRegistros.Where(r => r.nombre.Contains(buscar)).ToList();
+                // Reemplaza "Nombre" con el nombre de la columna en la tabla que deseas utilizar para la búsqueda
+            }
+            else
+            {
+                var curriculum = db.Curriculum.Include(c => c.Usuario);
+
+                return View(curriculum.ToList());
+            }
+
+            return View(listaRegistros);
+        }
+
+
+
+
+
+
 
         // GET: Curriculu/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Curriculum curriculum = db.Curriculum.Find(id);
-            if (curriculum == null)
-            {
-                return HttpNotFound();
-            }
-            return View(curriculum);
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //Curriculum curriculum = db.Curriculum.Find(id);
+            //if (curriculum == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(curriculum);
+            var curriculum = db.Curriculum.Include(c => c.Usuario).Where(c => c.idCurriculum == id);
+            return View(curriculum.ToList());
         }
 
         // GET: Curriculu/Create

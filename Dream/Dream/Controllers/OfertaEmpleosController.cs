@@ -108,7 +108,7 @@ namespace Dream.Controllers
                 ofertaEmpleo.idDatosEmpresa = Empresa;               
                 db.OfertaEmpleo.Add(ofertaEmpleo);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("TodasLasOfertas");
             }
 
            
@@ -152,10 +152,12 @@ namespace Dream.Controllers
                         .Select(p => p.idDatosEmpresa)
                         .FirstOrDefault();
 
+                ofertaEmpleo.estado = "Activo";
+
                 ofertaEmpleo.idDatosEmpresa = Empresa;
                 db.Entry(ofertaEmpleo).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("TodasLasOfertas");
             }
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nombre", ofertaEmpleo.idCategoria);
             ViewBag.idDatosEmpresa = new SelectList(db.DatosEmpresa, "idDatosEmpresa", "nombre", ofertaEmpleo.idDatosEmpresa);

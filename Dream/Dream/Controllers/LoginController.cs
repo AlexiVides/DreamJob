@@ -76,7 +76,7 @@ namespace Dream.Controllers
                     //Si es 1 es Empresa
                     if (user.idRol == 1)
                     {
-                        string nombreEmpresa = db.DatosEmpresa
+                      string nombreEmpresa = db.DatosEmpresa
                      .Where(p => p.idUsuario == user.idUsuario)
                      .Select(p => p.nombre)
                      .FirstOrDefault();
