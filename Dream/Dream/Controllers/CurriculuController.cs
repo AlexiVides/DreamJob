@@ -12,6 +12,7 @@ namespace Dream.Controllers
 {
     public class CurriculuController : Controller
     {
+        int IdCurriculo;
         private BdDreamJobEntities1 db = new BdDreamJobEntities1();
 
         // GET: Curriculu
@@ -69,6 +70,31 @@ namespace Dream.Controllers
             //return View(curriculum);
             var curriculum = db.Curriculum.Include(c => c.Usuario).Where(c => c.idCurriculum == id);
             return View(curriculum.ToList());
+        }
+
+        public ActionResult DetailsEmpleado(int? id)
+        {
+            string nombre = TempData["Nombre"] as string;
+            TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+            ViewBag.Nombre = nombre;
+            ViewData["Mensaje"] = nombre;
+
+            IdCurriculo = db.Curriculum
+                .Where(a => a.nombre == nombre)
+                .Select(a => a.idCurriculum)
+                .FirstOrDefault();
+
+            if (IdCurriculo == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Curriculum curriculum = db.Curriculum.Find(IdCurriculo);
+            if (curriculum == null)
+            {
+                return HttpNotFound();
+            }
+            return View(curriculum);
+
         }
 
         // GET: Curriculu/Create
@@ -140,9 +166,22 @@ namespace Dream.Controllers
         {
             if (ModelState.IsValid)
             {
+                string nombre = TempData["Nombre"] as string;
+                TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+                ViewBag.Nombre = nombre;
+
+                int Empleado = (from c in db.Usuario
+                               join p in db.Curriculum on c.idUsuario equals p.idUsuario
+                               where p.nombre == nombre
+                               select c.idUsuario)
+                               .FirstOrDefault();
+
+                curriculum.estado = "Activo";
+                curriculum.idUsuario = Empleado;
+
                 db.Entry(curriculum).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("DetailsEmpleado");
             }
             ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "correo", curriculum.idUsuario);
             return View(curriculum);

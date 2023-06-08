@@ -16,6 +16,8 @@ namespace Dream.Controllers
 
 
         // GET: OfertaEmpleos
+
+        //Este muestra todaslas ofertas que a creado la empresa en la que se inicio sesion
         public ActionResult TodasLasOfertas()
         {
             string nombre = TempData["Nombre"] as string;
@@ -25,6 +27,7 @@ namespace Dream.Controllers
             return View(ofertaEmpleo.ToList());
         }
 
+        //aca muestra las ofertas de empleo de la empresa que se inicio sesion en la categoria que se le dio clic
         public ActionResult Index(string nombre, string categoria)
         {
             var ofertaEmpleo = db.OfertaEmpleo.Include(o => o.Categoria).Include(o => o.DatosEmpresa).Where(o => o.estado == "Activo" && o.DatosEmpresa.nombre == nombre && o.Categoria.nombre == categoria);
@@ -32,10 +35,17 @@ namespace Dream.Controllers
         }
 
 
-        //Este Index2 es el que se les mostrara a los empleados
+        //Este Index2 es el que se les mostrara a los empleados cuando le den a alguna categoria
         public ActionResult Index2(string categoria)
         {
             var ofertaEmpleo = db.OfertaEmpleo.Include(o => o.Categoria).Include(o => o.DatosEmpresa).Where(o => o.estado == "Activo" && o.Categoria.nombre == categoria);
+            return View(ofertaEmpleo.ToList());
+        }
+
+        //Este TodasLasOfertasEmpleados es que se le mostrara todas la ofertas existentes al empleado o futuro empleado
+        public ActionResult TodasLasOfertasEmpleados()
+        {
+            var ofertaEmpleo = db.OfertaEmpleo.Include(o => o.Categoria).Include(o => o.DatosEmpresa).Where(o => o.estado == "Activo");
             return View(ofertaEmpleo.ToList());
         }
 

@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<Dream.Models.Curriculum>
+@{
+    Layout = "~/Views/Shared/_LayoutEmpleado.cshtml";
+}
 <style>
     .table-container {
         margin: 20px;
@@ -17,9 +20,9 @@
         transition: background-color 0.3s ease;
     }
 
-    .table-row:hover {
-        background-color: #f1f3f5;
-    }
+        .table-row:hover {
+            background-color: #f1f3f5;
+        }
 
     .table-cell {
         padding: 10px;
@@ -30,21 +33,21 @@
         text-decoration: none;
     }
 
-    .table-link:hover {
-        text-decoration: underline;
-    }
+        .table-link:hover {
+            text-decoration: underline;
+        }
 </style>
 
 <div class="table-container">
     <div class="table-header">
         <h2>Todos los Usuarios</h2>
-        
+
     </div>
     <form class="search-form" method="get" action="@Url.Action("Index2", "Curriculu")">
         <div class="input-group">
             <input type="text" class="form-control" name="buscar" placeholder="Buscar..." style="width: 10000px;" />
             <button type="submit" class="btn btn-primary">Buscar</button>
-           
+
         </div>
     </form>
 

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Dream.Models.OfertaEmpleo>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutEmpleado.cshtml";
 }
 
 <!-- Link hacia el archivo de estilos css -->
@@ -31,7 +31,7 @@
                                 <img src="https://img.icons8.com/color/26/000000/christmas-star.png" class="mr-1 ">
                                 <img src="https://img.icons8.com/color/26/000000/christmas-star.png" class="mr-1 ">
                             </p>
-                        </h6>
+                        </h6>                      
                     </div>
                 </div>
 
@@ -41,10 +41,6 @@
         </div>
     </div>
 </section>
-
-<div class="btn-volver">
-    @Html.ActionLink("Crear", "Create")
-</div>
 <div class="container">
     <div class="row">
         @foreach (var item in Model)
@@ -67,12 +63,12 @@
                             </p>
                             <p class="mb-2">
                                 <div class="btn-detalle" style="margin: 10px 33px;">
-                                    @Html.ActionLink("Detalles", "Details", new { id = item.idOfertaEmpleo })
+                                    @Html.ActionLink("Detalles", "Details2", new { id = item.idOfertaEmpleo })
                                 </div>
                                 @*<div class="btn-detalle" style="margin: 5px 2px;">
-                                        @Html.ActionLink("Actualizar", "Edit", new { id = item.idOfertaEmpleo })
-                                    </div>
-                                    <div class="btn-detalle" style="margin: 5px 101px;">
+                                   
+                                </div>*@
+                                    @*<div class="btn-detalle" style="margin: 5px 101px;">
                                         @Html.ActionLink("Eliminar", "Delete", new { id = item.idOfertaEmpleo })
                                     </div>*@
                             </p>
@@ -83,6 +79,8 @@
         }
     </div>
 </div>
+
+
 
 
 
