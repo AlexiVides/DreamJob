@@ -1,8 +1,8 @@
-﻿ @model Dream.Models.Curriculum
+﻿@model Dream.Models.Curriculum
 
-@*@{
-    Layout = null;
-}*@
+@{
+    Layout = "~/Views/Shared/_LayoutEmpleado.cshtml";
+}
 
 <!DOCTYPE html>
 
@@ -10,167 +10,153 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Delete</title>
+    @Styles.Render("~/Content/Curri.css")
 </head>
 <body>
-    <h3>Are you sure you want to delete this?</h3>
+    <h3 style="color:#ffffff">Seguro que desea eliminar el curriculum?</h3>
     <div>
-        <h4>Curriculum</h4>
+        <h4 style="color:#ffffff">Curriculum</h4>
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.nombre)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.nombre)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.apellido)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.apellido)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.edad)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.edad)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.genero)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.genero)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.direccion)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.direccion)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.telefono)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.telefono)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.dui)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.dui)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.licencia)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.licencia)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.nivelAcademico)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.nivelAcademico)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.historialAcademico)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.historialAcademico)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.referenciaPers)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.referenciaPers)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.experienciaLab)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.experienciaLab)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.descripcion)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.descripcion)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.correoOpc)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.correoOpc)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.segundoIdioma)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.segundoIdioma)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.imagen)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.imagen)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.estado)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.estado)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Usuario.correo)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Usuario.correo)
-            </dd>
-    
-        </dl>
-    
-        @using (Html.BeginForm()) {
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                        <div class="mt-3">
+                            <h4>  @Html.DisplayFor(modelItem => Model.nombre)</h4>
+                            <p class="text-secondary mb-1">  @Html.DisplayFor(modelItem => Model.nivelAcademico)</p>
+                            <p class="text-muted font-size-sm"> @Html.DisplayFor(modelItem => Model.direccion)</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <p>Decripcion personal</p>
+                        <span class="text-secondary"> @Html.DisplayFor(modelItem => Model.descripcion)</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <p>Correo:</p>
+                        <span class="text-secondary">  @Html.DisplayFor(modelItem => Model.Usuario.correo)</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <p>Segundo Idioma:</p>
+                        <span class="text-secondary">@Html.DisplayFor(modelItem => Model.segundoIdioma)</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <p>Correo Secundario:</p>
+                        <span class="text-secondary"> @Html.DisplayFor(modelItem => Model.correoOpc)</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <p>Licencia</p>
+                        <span class="text-secondary">   @Html.DisplayFor(modelItem => Model.licencia)</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <p>Telefono</p>
+                        <span class="text-secondary">@Html.DisplayFor(modelItem => Model.telefono)</span>
+                    </li>
+
+                </ul>
+            </div>
+        </div><div class="col-md-8">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Nombre</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.nombre)
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Apellidos</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.apellido)
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Edad</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.edad)
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Genero</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.genero)
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Numero de Dui</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.dui)
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Historial Academico</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.historialAcademico)
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Experiencia Laboral</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.experienciaLab)
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Feferencias </h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.referenciaPers)
+                        </div>
+                    </div><br /><br /><br /><br /><br />
+                    <hr>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        @using (Html.BeginForm())
+        {
             @Html.AntiForgeryToken()
-    
-            <div class="form-actions no-color">
+
+            <div class="form-actions no-color" id="btn">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+                @Html.ActionLink("Volver", "Index")
             </div>
         }
     </div>
 </body>
 </html>
+<style>
+    #btn {
+        border-width: 4px;
+    }
+</style>
