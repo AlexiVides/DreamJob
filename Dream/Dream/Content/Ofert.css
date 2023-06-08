@@ -1,4 +1,6 @@
-﻿
+﻿body {
+    background-color: #254B5E;
+}
 card-body {
     margin-top: 10px !important;
     margin-left: 30px;
