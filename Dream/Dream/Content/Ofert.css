@@ -184,3 +184,34 @@ body {
 p {
     line-height: 1.7;
 }
+/*crear ofertas*/
+.container {
+    position: relative;
+}
+
+.panel-default {
+    border-radius: 30px;
+    background: #deecf9;
+    width: 1150px;
+    top: 50%;
+    left: 50%;
+}
+
+.panel {
+    border-radius: 30px;
+}
+
+.detalle {
+    height: 30px;
+    background-color: #096bb5;
+}
+
+.panel-title {
+    color: white;
+    text-align: center;
+}
+
+.btn-info {
+    box-shadow: 0 0 0 1px #5bc0de inset, 0 0 0 2px rgba(255,255,255,0.15) inset;
+    background-color: #5bc0de;
+}
