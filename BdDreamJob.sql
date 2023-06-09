@@ -1,6 +1,5 @@
 create database BdDreamJob
 use BdDreamJob
-
 create table Rol
 (
 idRol int primary key identity(1,1) not null,
@@ -34,7 +33,7 @@ contra nvarchar(50) not null,
 estado nvarchar(50) not null,
 idRol int foreign key references Rol(idRol)
 );
-insert into Usuario Values ('maye@gmail.com','11','Activo','1')
+
 
 create table Curriculum
 (

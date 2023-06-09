@@ -117,6 +117,7 @@ namespace Dream.Controllers
                 string nombre = TempData["Nombre"] as string;
                 TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
                 ViewBag.Nombre = nombre;
+
                 int Empresa = (from c in db.Usuario
                                join p in db.DatosEmpresa on c.idUsuario equals p.idUsuario
                                where p.nombre == nombre
