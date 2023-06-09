@@ -1,17 +1,87 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<br />
+<br />
+<h2>@ViewBag.Message </h2>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<!-- Link hacia el archivo de estilos css -->
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<link rel="stylesheet" href="css/Contacto.css">
+<style type="text/css">
+</style>
+@Styles.Render("~/Content/Contacto.css")
+<script type="text/javascript"></script>
+
+
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+        <div class="profile-nav col-md-3">
+            <div class="panel">
+                <div class="user-heading round">
+                    <a href="#">
+                        <img src="~/Content/img/logo.png" alt="">
+                    </a>
+                    <h1>DreamJob</h1>
+                    <p>DreamJob@gmail.com</p>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="profile-info col-md-9">
+            <div class="panel">
+                <h3>
+                    Direccion:
+
+                </h3>
+                <h4>
+                    45855 Althea Falls, Apt. 162, 91474, East Amanda, Vermont, United States
+                </h4>
+            </div>
+            <div class="panel">
+                <div class="bio-graph-heading">
+                    __________Medios de contacto__________
+                </div>
+                <div class="panel-body bio-graph-info">
+                    <h1>Contactos</h1>
+                    <div class="row">
+                        <div class="bio-row">
+                            <p><span>Telefono </span>: 7609-4430</p>
+                        </div>
+                        <div class="bio-row">
+                            <p><span>Gmail </span>: DreamJob@gmail.com</p>
+                        </div>
+                        <div class="bio-row">
+                            <p><span>Fax </span>: 1-850-201-8911</p>
+                        </div>
+                        <div class="bio-row">
+                            <p><span>WhatsApp </span>: 809-332-5050</p>
+                        </div>
+
+                        <div class="bio-row">
+                            <p><span>Facebook </span>: Dream Job</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel">
+                            <div class="panel-body">
+
+                                <div class="bio-desk">
+                                    <h4 class="red">Horario de atención</h4>
+                                    <p>Lunes-viertenes</p>
+                                    <p>7:00-21:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

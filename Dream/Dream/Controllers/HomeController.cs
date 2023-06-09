@@ -22,7 +22,7 @@ namespace Dream.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "______________________________Contacto______________________________";
 
             return View();
         }
