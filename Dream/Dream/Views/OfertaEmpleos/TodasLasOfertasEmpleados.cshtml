@@ -62,15 +62,19 @@
                                 Requisitos: @Html.DisplayFor(modelItem => item.requerimientos)
                             </p>
                             <p class="mb-2">
+                                categoria:   @Html.DisplayFor(modelItem => item.Categoria.nombre)
+                            </p>
+
+                            <p class="mb-2">
                                 <div class="btn-detalle" style="margin: 10px 33px;">
                                     @Html.ActionLink("Detalles", "Details2", new { id = item.idOfertaEmpleo })
                                 </div>
                                 @*<div class="btn-detalle" style="margin: 5px 2px;">
-                                   
-                                </div>*@
-                                    @*<div class="btn-detalle" style="margin: 5px 101px;">
-                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idOfertaEmpleo })
-                                    </div>*@
+
+            </div>*@
+                                @*<div class="btn-detalle" style="margin: 5px 101px;">
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idOfertaEmpleo })
+            </div>*@
                             </p>
                         </div>
                     </div>
