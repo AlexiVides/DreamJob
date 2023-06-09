@@ -4,71 +4,215 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<a href="https://icons8.com/icon/kDoeg22e5jUY/male-user"></a> <a href="https://icons8.com"></a>
 
-<div>
-    <h4>DatosEmpresa</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+<div class="container">
+    <style>
+        .card1 {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 0 solid rgba(0,0,0,.125);
+            border-radius: 0.25rem;
+            margin-top: 25px;
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+        .row2 {
+            margin-top: 10px;
+            margin-left: 25px;
+        }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.direccion)
-        </dt>
+        .row {
+            margin-right: -15px;
+            margin-left: 0px;
+            margin-top: 20px;
+        }
+    </style>
+    <section>
+        <div class="pricing-box1 mt-4" ">
+            <div class="card1 mt-5 border-5 pt-2 active pb-0 px-3 ">
+                <div class="card1-body ">
+                    <div class="row2">
+                        <div class="col-12 ">
+                            <h4 class="card-title "><b>Perfil de Empresa</b></h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.direccion)
-        </dd>
+                        </div>
+                        <div class="col">
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <p class="card-text text-muted small ">
+                                    <img width="96" height="96" src="https://img.icons8.com/fluency/96/client-company.png" alt="client-company" />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.telefono)
-        </dt>
+                                </p>
+                            </h6>
+                        </div>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.telefono)
-        </dd>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.licencia)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.licencia)
-        </dd>
+            </div>
+        </div>
+    </section>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </dt>
+    <div class="main-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.descripcion)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
+        <div class="row2 gutters-sm">
 
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario.correo)
-        </dt>
+            <div class="col-md-4 mb-3">
+                <div class="card1">
+                    <div class="card1-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="~/Content/img/Empresa2.jpg" alt="Admin" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4>    @Html.DisplayFor(model => model.nombre)</h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.Usuario.correo)
-        </dd>
 
-    </dl>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <p>Decripcion empresa</p>
+                            <span class="text-secondary"> @Html.DisplayFor(model => model.descripcion)</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <p>Correo:</p>
+                            <span class="text-secondary"> @Html.DisplayFor(model => model.Usuario.correo)</span>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div><div class="col-md-8">
+                <div class="card1 mb-3">
+                    <div class="card1-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Nombre</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.nombre)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Telefono de contacto</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.telefono)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Licencia</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.licencia)
+                            </div>
+                        </div>
+                        <hr>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
 </div>
+
+
+@*<div>
+
+        <h4>DatosEmpresa</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.licencia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.licencia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.estado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.estado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Usuario.correo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Usuario.correo)
+            </dd>
+
+        </dl>
+    </div>*@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.idDatosEmpresa }) |
-    @Html.ActionLink("Back to List", "Index", "HomeEmpresa")
+    @Html.ActionLink("Back to List", "Index")
 </p>
