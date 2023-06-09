@@ -66,17 +66,50 @@ namespace Dream.Controllers
             return View(ofertaEmpleo);
         }
 
+
+        public ActionResult AplicarOferta([Bind(Include = "idAplicacion,idCurriculum,idOfertaEmpleo")] Aplicacion aplicacion, int? id)
+        {
+            if (ModelState.IsValid)
+            {
+                //Nombre del usuario
+                string nombre = TempData["Nombre"] as string;
+                TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+                ViewBag.Nombre = nombre;
+                ViewData["Mensaje"] = nombre;
+
+                int IdUsuario = db.Curriculum
+                         .Where(p => p.nombre == nombre)
+                         .Select(p => p.idCurriculum)
+                         .FirstOrDefault();
+
+
+                //Id de la oferta de empleo
+                aplicacion.idOfertaEmpleo = id;
+                aplicacion.idCurriculum = IdUsuario;
+                db.Aplicacion.Add(aplicacion);
+                db.SaveChanges();
+                return RedirectToAction("TodasLasOfertasEmpleados", "OfertaEmpleos");
+            }
+
+            ViewBag.idCurriculum = new SelectList(db.Curriculum, "idCurriculum", "nombre", aplicacion.idCurriculum);
+            ViewBag.idOfertaEmpleo = new SelectList(db.OfertaEmpleo, "idOfertaEmpleo", "nombre", aplicacion.idOfertaEmpleo);
+            return RedirectToAction("TodasLasOfertasEmpleados", "OfertaEmpleos");
+        }
+
+
         public ActionResult Details2(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            OfertaEmpleo ofertaEmpleo = db.OfertaEmpleo.Find(id);
-            if (ofertaEmpleo == null)
-            {
-                return HttpNotFound();
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //OfertaEmpleo ofertaEmpleo = db.OfertaEmpleo.Find(id);
+            //if (ofertaEmpleo == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //TempData["Nombre"] = id;
+            var ofertaEmpleo = db.OfertaEmpleo.Include(c => c.DatosEmpresa).Where(c => c.idOfertaEmpleo == id);
             return View(ofertaEmpleo);
         }
 
@@ -90,7 +123,6 @@ namespace Dream.Controllers
         // GET: OfertaEmpleos/Create
         public ActionResult Create()
         {
-           
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nombre");
             ViewBag.idDatosEmpresa = new SelectList(db.DatosEmpresa, "idDatosEmpresa", "nombre");
             return View();
@@ -115,13 +147,13 @@ namespace Dream.Controllers
                         .FirstOrDefault();
 
                 ofertaEmpleo.estado = "Activo";
-                ofertaEmpleo.idDatosEmpresa = Empresa;               
+                ofertaEmpleo.idDatosEmpresa = Empresa;
                 db.OfertaEmpleo.Add(ofertaEmpleo);
                 db.SaveChanges();
                 return RedirectToAction("TodasLasOfertas");
             }
 
-           
+
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nombre", ofertaEmpleo.idCategoria);
             ViewBag.idDatosEmpresa = new SelectList(db.DatosEmpresa, "idDatosEmpresa", "nombre", ofertaEmpleo.idDatosEmpresa);
             return View(ofertaEmpleo);
