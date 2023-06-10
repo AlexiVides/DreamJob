@@ -129,6 +129,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AplicacionesController.cs" />
     <Compile Include="Controllers\CurriculuController.cs" />
     <Compile Include="Controllers\DatosEmpresasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -309,6 +310,9 @@
     <Content Include="Views\Curriculu\Index2.cshtml" />
     <Content Include="Views\Curriculu\DetailsEmpleado.cshtml" />
     <Content Include="Views\OfertaEmpleos\TodasLasOfertasEmpleados.cshtml" />
+    <Content Include="Views\Aplicaciones\Index.cshtml" />
+    <Content Include="Views\Aplicaciones\IndexEmpresa.cshtml" />
+    <Content Include="Views\Aplicaciones\DetallesOferta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

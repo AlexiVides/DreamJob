@@ -93,7 +93,9 @@
                     </h3>
                     @*<a href="/Aplicacion/Index">Aplicar</a>*@
                     @Html.ActionLink("Aplicar a la oferta de empleo", "AplicarOferta", new { id = item.idOfertaEmpleo })
-
+                    <p id="msj">
+                        <strong>@ViewBag.Mensaje</strong>
+                    </p>
                 </div>
             </li>
 

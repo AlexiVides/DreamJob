@@ -57,27 +57,46 @@ namespace Dream.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    usuario.estado = "Activo";
-                    usuario.idRol = 1;
-                    db.Usuario.Add(usuario);
-                    db.SaveChanges();
-                    string gmail = usuario.correo;                   
-                    TempData["Mensaje"] = gmail;
-                    return RedirectToAction("Create", "DatosEmpresas");
+                    var user = db.Usuario.Where(x => x.correo.Trim() == usuario.correo).FirstOrDefault();
+                    if (user == null)
+                    {
+                        usuario.estado = "Activo";
+                        usuario.idRol = 1;
+                        db.Usuario.Add(usuario);
+                        db.SaveChanges();
+                        string gmail = usuario.correo;
+                        TempData["Mensaje"] = gmail;
+                        return RedirectToAction("Create", "DatosEmpresas");
+                    }
+                    else
+                    {
+                        ViewData["Mensaje"] = "El usuario ya existe!";
+                        return View();
+                    }
+
                 }
             }
             else
             {
                 if (ModelState.IsValid)
                 {
-                    usuario.estado = "Activo";
-                    usuario.idRol = 2;
+                    var user = db.Usuario.Where(x => x.correo.Trim() == usuario.correo).FirstOrDefault();
+                    if (user == null)
+                    {
+                        usuario.estado = "Activo";
+                        usuario.idRol = 2;
 
-                    db.Usuario.Add(usuario);
-                    db.SaveChanges();
-                    string gmail = usuario.correo;
-                    TempData["Mensaje"] = gmail;
-                    return RedirectToAction("Create", "Curriculu");
+                        db.Usuario.Add(usuario);
+                        db.SaveChanges();
+                        string gmail = usuario.correo;
+                        TempData["Mensaje"] = gmail;
+                        return RedirectToAction("Create", "Curriculu");
+                    }
+                    else
+                    {
+                        ViewData["Mensaje"] = "El usuario ya existe!";
+                        return View();
+                    }
                 }
             }
 

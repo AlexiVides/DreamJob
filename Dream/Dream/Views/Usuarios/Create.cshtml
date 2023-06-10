@@ -25,10 +25,13 @@
                 @Html.EditorFor(model => model.contra, new { htmlAttributes = new { @class = "form-control ", @type = "password", @placeholder = "*******", required = "required" } })
                 @Html.ValidationMessageFor(model => model.contra, "", new { @class = "text-danger" })
             </p>
+            <p>
+                <strong>@ViewBag.Mensaje</strong>
+            </p>
             <div class="form-group">
                 <p class="p-container">
                     <input type="submit" name="go" id="go" value="Create">
-                    
+
                 </p>
             </div>
         </div>

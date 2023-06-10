@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Dream.Models.Aplicacion>
+
+@{
+    Layout = "~/Views/Shared/_LayoutEmpleado.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Curriculum.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaEmpleo.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaEmpleo.DatosEmpresa.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaEmpleo.DatosEmpresa.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaEmpleo.DatosEmpresa.telefono)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Curriculum.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfertaEmpleo.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfertaEmpleo.DatosEmpresa.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfertaEmpleo.DatosEmpresa.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfertaEmpleo.DatosEmpresa.telefono)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "EliminarEmple", new { id = item.idAplicacion })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

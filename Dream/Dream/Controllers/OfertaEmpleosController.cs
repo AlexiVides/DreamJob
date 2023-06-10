@@ -82,13 +82,20 @@ namespace Dream.Controllers
                          .Select(p => p.idCurriculum)
                          .FirstOrDefault();
 
-
-                //Id de la oferta de empleo
-                aplicacion.idOfertaEmpleo = id;
-                aplicacion.idCurriculum = IdUsuario;
-                db.Aplicacion.Add(aplicacion);
-                db.SaveChanges();
-                return RedirectToAction("TodasLasOfertasEmpleados", "OfertaEmpleos");
+                var Aplica = db.Aplicacion.Where(x => x.OfertaEmpleo.idOfertaEmpleo == id && x.Curriculum.idCurriculum == IdUsuario).FirstOrDefault();
+                if (Aplica == null)
+                {
+                    //Id de la oferta de empleo
+                    aplicacion.idOfertaEmpleo = id;
+                    aplicacion.idCurriculum = IdUsuario;
+                    db.Aplicacion.Add(aplicacion);
+                    db.SaveChanges();
+                    return RedirectToAction("TodasLasOfertasEmpleados", "OfertaEmpleos");
+                }
+                else
+                {
+                    ViewData["Mensaje"] = "El usuario ya existe!";
+                }
             }
 
             ViewBag.idCurriculum = new SelectList(db.Curriculum, "idCurriculum", "nombre", aplicacion.idCurriculum);
