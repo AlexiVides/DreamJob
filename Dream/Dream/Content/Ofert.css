@@ -192,19 +192,26 @@ p {
 }
 
 .panel-default {
-    border-radius: 30px;
+    border-radius: 20px;
     background: #deecf9;
     top: 50%;
-    left: 50%;
+    left: 60%;
+    
 }
 
 .panel {
-    border-radius: 30px;
+    border-top: 1px solid #369;
+    border-bottom: 3px double #369;
+    cursor: default;
+    
 }
+   
 
 .detalle {
-    height: 30px;
+    height: 35px;
     background-color: #096bb5;
+    border-radius:30px;
+    
 }
 
 .panel-title {
