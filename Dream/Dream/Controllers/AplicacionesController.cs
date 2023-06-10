@@ -42,7 +42,7 @@ namespace Dream.Controllers
         }
 
         // GET: Aplicaciones/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult DetallesOferta(int? id)
         {
             if (id == null)
             {

@@ -1,6 +1,7 @@
-﻿
+﻿@model Dream.Models.Aplicacion
+
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -8,11 +9,34 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    
+    <title>Details</title>
 </head>
 <body>
-    <h2>Detalles Oferta y curriculum</h2>
     <div>
+        <h4>Aplicacion</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Curriculum.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Curriculum.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OfertaEmpleo.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OfertaEmpleo.nombre)
+            </dd>
+
+        </dl>
     </div>
+    <p>
+        @Html.ActionLink("Atras", "IndexEmpresa")
+    </p>
 </body>
 </html>
+
