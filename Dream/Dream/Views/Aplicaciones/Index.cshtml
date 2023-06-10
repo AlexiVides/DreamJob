@@ -6,13 +6,79 @@
 
 <!DOCTYPE html>
 
-<html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
+<!-- Link hacia el archivo de estilos css -->
+
+<link rel="stylesheet" href="css/Apindex.css">
+<style type="text/css">
+</style>
+@Styles.Render("~/Content/Apindex.css")
+<script type="text/javascript"></script>
+
 <body>
-    <table class="table">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+
+    <div class="container">
+        <div class="row">
+                <div class="col-lg-12">
+                    <div class="">
+                        <div class="table-responsive">
+                            <table class="table project-list-table table-nowrap align-middle table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="ps-4" style="width: 50px;">
+                                            
+                                        <th scope="col">Nombre </th>
+                                        <th scope="col">Oferta de empleo</th>
+                                        <th scope="col">Nombre empresa</th>
+                                        <th scope="col">Direccion </th>
+                                        <th scope="col">Telefono</th>
+
+                                        <th scope="col" style="width: 200px;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    { 
+
+
+                                        <tr>
+                                            <th scope="row" class="ps-4">
+                                                <img width="100" height="100" src="https://img.icons8.com/3d-fluency/94/user-group-man-woman--v2.png" alalt="" class="avatar-sm rounded-circle me-2" />
+                                            </th>
+                                            <td><a1 href="#" class="text-body">@Html.DisplayFor(modelItem => item.Curriculum.nombre)</a1></td>
+                                            <td><span class="badge badge-soft-success mb-0">  @Html.DisplayFor(modelItem => item.OfertaEmpleo.nombre)</span></td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.OfertaEmpleo.DatosEmpresa.nombre)
+                                            </td>
+                                            <td> @Html.DisplayFor(modelItem => item.OfertaEmpleo.DatosEmpresa.direccion)</td>
+                                            <td> @Html.DisplayFor(modelItem => item.OfertaEmpleo.DatosEmpresa.telefono)</td>
+                                            <td>
+                                                @Html.ActionLink("Delete", "EliminarEmple", new { id = item.idAplicacion })
+                                            </td>
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+      
+
+    </div>
+
+    @*<table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Curriculum.nombre)
@@ -20,6 +86,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.OfertaEmpleo.nombre)
             </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.OfertaEmpleo.DatosEmpresa.nombre)
             </th>
@@ -38,6 +105,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Curriculum.nombre)
                 </td>
+               
                 <td>
                     @Html.DisplayFor(modelItem => item.OfertaEmpleo.nombre)
                 </td>
@@ -56,6 +124,5 @@
             </tr>
         }
 
-    </table>
+    </table>*@
 </body>
-</html>
