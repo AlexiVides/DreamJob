@@ -98,28 +98,28 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="fullName">Nombre</label>
-                                        @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control", @placeholder = "TecnoPro", required = "required" } })
                                         @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="eMail">Direccion</label>
-                                        @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control", @placeholder = "Sexta calle poniente, B. el chile, Chalatenago", required = "required" } })
                                         @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="phone">Licencia</label>
-                                        @Html.EditorFor(model => model.licencia, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.licencia, new { htmlAttributes = new { @class = "form-control", @placeholder = "732879594-0", required = "required" } })
                                         @Html.ValidationMessageFor(model => model.licencia, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Street">Descripcion</label>
-                                        @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control", @placeholder = "Destamos en calidad tecnologica", required = "required" } })
                                         @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Street">Telefono</label>
-                                        @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control", @placeholder = "56347689 ", required = "required" } })
                                         @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
                                     </div>
                                 </div>

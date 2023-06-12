@@ -60,6 +60,13 @@
             </li>
             <li class="has-subnav">
                 <span class="nav-text">
+                    <img src="~/Content/img/aplicantes.png" width="30" />
+                    @Html.ActionLink("Aplicaciones", "Index", "Aplicaciones")
+                </span>
+                <br />
+            </li>
+            <li class="has-subnav">
+                <span class="nav-text">
                     <img src="~/Content/img/user.png" width="30" />
                     @Html.ActionLink("Perfil", "DetailsEmpleado", "Curriculu")
                 </span>
@@ -67,19 +74,11 @@
             </li>
             <li class="has-subnav">
                 <span class="nav-text">
-                    <img src="~/Content/img/user.png" width="30" />
-                    @Html.ActionLink("Contacto", "Contact", "Home")
+                    <img src="~/Content/img/contacto.png" width="30" />
+                    @Html.ActionLink("Contacto", "Contact", "Shared")
                 </span>
                 <br />
             </li>
-            <li class="has-subnav">
-                <span class="nav-text">
-                    <img src="~/Content/img/oferta1.png" width="30" />
-                    @Html.ActionLink("Aplicaciones", "Index", "Aplicaciones")
-                </span>
-                <br />
-            </li>
-
         </ul>
         <ul class="logout">
             <li>

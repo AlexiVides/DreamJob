@@ -214,29 +214,39 @@ namespace Dream.Controllers
         }
 
         // GET: OfertaEmpleos/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            OfertaEmpleo ofertaEmpleo = db.OfertaEmpleo.Find(id);
-            if (ofertaEmpleo == null)
-            {
-                return HttpNotFound();
-            }
-            return View(ofertaEmpleo);
-        }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    OfertaEmpleo ofertaEmpleo = db.OfertaEmpleo.Find(id);
+        //    if (ofertaEmpleo == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(ofertaEmpleo);
+        //}
 
         // POST: OfertaEmpleos/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        //[ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed([Bind(Include = "idOfertaEmpleo,idCategoria,idDatosEmpresa, estado")] OfertaEmpleo ofertaEmpleo, int? id)
         {
-            OfertaEmpleo ofertaEmpleo = db.OfertaEmpleo.Find(id);
-            db.OfertaEmpleo.Remove(ofertaEmpleo);
+            string nombre = TempData["Nombre"] as string;
+            TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+            ViewBag.Nombre = nombre;
+
+            int Empresa = db.DatosEmpresa
+                    .Where(p => p.nombre == nombre)
+                    .Select(p => p.idDatosEmpresa)
+                    .FirstOrDefault();
+
+            ofertaEmpleo.estado = "Inactivo";
+
+            //ofertaEmpleo.idDatosEmpresa = Empresa;
+            db.Entry(ofertaEmpleo).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("TodasLasOfertas");
         }
 
         protected override void Dispose(bool disposing)
@@ -249,3 +259,4 @@ namespace Dream.Controllers
         }
     }
 }
+

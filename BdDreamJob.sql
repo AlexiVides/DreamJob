@@ -44,15 +44,15 @@ edad int not null,
 genero nvarchar(100) not null,
 direccion nvarchar(1000) not null,
 telefono nvarchar(12) not null,
-dui nvarchar(10) not null,
+dui nvarchar(15) not null,
 licencia nvarchar(50) not null,
 nivelAcademico nvarchar(100) not null,
 historialAcademico nvarchar(1000) not null,
 referenciaPers nvarchar(1000) not null,
 experienciaLab nvarchar(1000) not null,
 descripcion nvarchar(1000) not null,
-correoOpc nvarchar(100) not null,
-segundoIdioma nvarchar(100) not null,
+correoOpc nvarchar(100) null,
+segundoIdioma nvarchar(100) null,
 imagen image null,
 estado nvarchar(50) not null,
 idUsuario int foreign key references Usuario(idUsuario)
@@ -97,4 +97,3 @@ idAplicacion int primary key identity(1,1) not null,
 idCurriculum int foreign key references Curriculum(idCurriculum),
 idOfertaEmpleo int foreign key references OfertaEmpleo(idOfertaEmpleo)
 );
-

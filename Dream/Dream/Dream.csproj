@@ -277,9 +277,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Usuarios\Create.cshtml" />
     <Content Include="Views\Usuarios\Delete.cshtml" />
     <Content Include="Views\Usuarios\Details.cshtml" />
@@ -314,6 +311,7 @@
     <Content Include="Views\Aplicaciones\Index.cshtml" />
     <Content Include="Views\Aplicaciones\IndexEmpresa.cshtml" />
     <Content Include="Views\Aplicaciones\DetallesOferta.cshtml" />
+    <Content Include="Views\Shared\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
