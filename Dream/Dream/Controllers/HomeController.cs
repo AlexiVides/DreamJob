@@ -19,8 +19,13 @@ namespace Dream.Controllers
 
             return View();
         }
+        public ActionResult ContactoEmpleado()
+        {
+            ViewBag.Message = "______________________________Contacto______________________________";
 
-        public ActionResult Contact()
+            return View();
+        }
+        public ActionResult ContactoEmpresa()
         {
             ViewBag.Message = "______________________________Contacto______________________________";
 
