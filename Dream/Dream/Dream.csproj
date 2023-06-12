@@ -188,6 +188,7 @@
     <Content Include="Content\CreateE.css" />
     <Content Include="Content\Curri.css" />
     <Content Include="Content\Curricul.css" />
+    <Content Include="Content\Details.css" />
     <Content Include="Content\DetallesOfer.css" />
     <Content Include="Content\HomeEmpleado.css" />
     <Content Include="Content\Contacto.css" />
