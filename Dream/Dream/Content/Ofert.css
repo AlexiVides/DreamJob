@@ -219,7 +219,28 @@ p {
     text-align: center;
 }
 
-.btn-info {
-    box-shadow: 0 0 0 1px #5bc0de inset, 0 0 0 2px rgba(255,255,255,0.15) inset;
-    background-color: #5bc0de;
+.btn-edeptec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    color: #ffffff;
+    background: linear-gradient(#0039ae, #096bb5);
+    border: 2px solid #0058e6;
+    border-radius: 10px 10px 12px 12px;
+    box-shadow: 8px 8px 10.7px 3px #024b83;
+    transition: all 0.3s;
 }
+
+    .btn-edeptec:hover {
+        color: #ffffff;
+        background-color: #62afd0;
+        border: 2px solid #00779e;
+        border-radius: 16px 5px 16px 5px;
+        box-shadow: 10px 7px 5px 3px #08657d;
+    }
