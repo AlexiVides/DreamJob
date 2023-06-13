@@ -1,4 +1,6 @@
-﻿
+﻿body {
+    background-color: #254B5E;
+}
 .panel-body {
     background: #d4ebff;
     border-radius: 10px;

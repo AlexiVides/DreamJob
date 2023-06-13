@@ -33,9 +33,11 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="ps-4" style="width: 50px;">
-                                            
+
                                         <th scope="col">Nombre </th>
                                         <th scope="col">Oferta de empleo</th>
+                                        <th scope="col">Categoria</th>
+
                                         <th scope="col">Nombre empresa</th>
                                         <th scope="col">Direccion </th>
                                         <th scope="col">Telefono</th>
@@ -55,13 +57,14 @@
                                             </th>
                                             <td><a1 href="#" class="text-body">@Html.DisplayFor(modelItem => item.Curriculum.nombre)</a1></td>
                                             <td><span class="badge badge-soft-success mb-0">  @Html.DisplayFor(modelItem => item.OfertaEmpleo.nombre)</span></td>
+                                            <td><span class="badge badge-soft-success mb-0">  @Html.DisplayFor(modelItem => item.OfertaEmpleo.Categoria.nombre)</span></td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.OfertaEmpleo.DatosEmpresa.nombre)
                                             </td>
                                             <td> @Html.DisplayFor(modelItem => item.OfertaEmpleo.DatosEmpresa.direccion)</td>
                                             <td> @Html.DisplayFor(modelItem => item.OfertaEmpleo.DatosEmpresa.telefono)</td>
                                             <td>
-                                                @Html.ActionLink("Delete", "EliminarEmple", new { id = item.idAplicacion })
+                                                @Html.ActionLink("Eliminar", "EliminarEmple", new { id = item.idAplicacion })
                                             </td>
                                         </tr>
 

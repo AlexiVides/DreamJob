@@ -230,24 +230,47 @@ namespace Dream.Controllers
 
         // POST: OfertaEmpleos/Delete/5
         //[ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed([Bind(Include = "idOfertaEmpleo,idCategoria,idDatosEmpresa, estado")] OfertaEmpleo ofertaEmpleo, int? id)
+        //public ActionResult DeleteConfirmed([Bind(Include = "idOfertaEmpleo,idCategoria,idDatosEmpresa, estado")] OfertaEmpleo ofertaEmpleo, int? id)
+        //{
+        //    string nombre = TempData["Nombre"] as string;
+        //    TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+        //    ViewBag.Nombre = nombre;
+
+        //    int Empresa = db.DatosEmpresa
+        //            .Where(p => p.nombre == nombre)
+        //            .Select(p => p.idDatosEmpresa)
+        //            .FirstOrDefault();
+
+        //    ofertaEmpleo.estado = "Inactivo";
+
+        //    //ofertaEmpleo.idDatosEmpresa = Empresa;
+        //    db.Entry(ofertaEmpleo).State = EntityState.Modified;
+        //    db.SaveChanges();
+        //    return RedirectToAction("TodasLasOfertas");
+        //}
+
+        public ActionResult desactivar(int? id)
         {
-            string nombre = TempData["Nombre"] as string;
-            TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
-            ViewBag.Nombre = nombre;
+            //string nombre = TempData["Nombre"] as string;
+            //    TempData.Keep("Nombre"); // Mantener los datos de TempData para la próxima solicitud
+            //    ViewBag.Nombre = nombre;
 
-            int Empresa = db.DatosEmpresa
-                    .Where(p => p.nombre == nombre)
-                    .Select(p => p.idDatosEmpresa)
-                    .FirstOrDefault();
+            //    int Empresa = db.DatosEmpresa
+            //            .Where(p => p.nombre == nombre)
+            //            .Select(p => p.idDatosEmpresa)
+            //            .FirstOrDefault();
 
-            ofertaEmpleo.estado = "Inactivo";
+            OfertaEmpleo of = db.OfertaEmpleo.Find(id);
 
-            //ofertaEmpleo.idDatosEmpresa = Empresa;
-            db.Entry(ofertaEmpleo).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("TodasLasOfertas");
+
+                of.estado = "Desactivo";
+                db.Entry(of).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("TodasLasOfertas");
         }
+
+
+
 
         protected override void Dispose(bool disposing)
         {
