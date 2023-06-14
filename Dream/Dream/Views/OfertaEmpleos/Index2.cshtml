@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutEmpleado.cshtml";
 
 }
 
@@ -43,9 +44,9 @@
     </div>
 </section>
 
-<div class="btn-volver">
+@*<div class="btn-volver">
     @Html.ActionLink("Crear", "Create")
-</div>
+</div>*@
 <div class="container">
     <div class="row">
         @foreach (var item in Model)

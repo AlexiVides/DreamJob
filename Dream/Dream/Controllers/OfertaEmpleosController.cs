@@ -17,7 +17,7 @@ namespace Dream.Controllers
 
         // GET: OfertaEmpleos
 
-        //Este muestra todaslas ofertas que a creado la empresa en la que se inicio sesion
+        //Este muestra todas las ofertas que a creado la empresa en la que se inicio sesion
         public ActionResult TodasLasOfertas()
         {
             string nombre = TempData["Nombre"] as string;
